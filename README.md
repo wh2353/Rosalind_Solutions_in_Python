@@ -1,2 +1,3 @@
 # Rosalind_Solutions_in_Python
-Mar 2019
+Last updates: Mar 2019
+Rosalind Problems solutions in Python 2.7
