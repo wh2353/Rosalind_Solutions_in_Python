@@ -57,7 +57,7 @@ def GreedyMotifSearch(list_of_seqs, k, t):
 if __name__ == "__main__":
     #read inputs
     start = time.time()
-    data_file = open("/Users/WENRUI/Downloads/rosalind_ba2d.txt").read().rstrip().split("\n")
+    data_file = open("rosalind_ba2d.txt").read().rstrip().split("\n")
 
     k = eval(data_file[0].split()[0])
     t = eval(data_file[0].split()[1])
