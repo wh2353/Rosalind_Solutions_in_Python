@@ -1,0 +1,47 @@
+In “Find the Longest Substring Shared by Two Strings”, we introduced the Longest Shared Substring Problem. A naive approach for finding a longest shared substring of strings Text1 and Text2 would construct one suffix tree for Text1 and another for Text2. Instead, we will add "#" to the end of Text1, add "" to the end of Text2, and then construct the single suffix tree for the concatenation of Text1 and Text2. We color a leaf in this suffix tree blue if it is labeled by the starting position of a suffix starting in Text1; we color a leaf red if it is labeled by the starting position of a suffix starting in Text2.
+We also color the remaining nodes of the suffix tree blue, red, and purple according to the following rules:
+
+a node is colored blue or red if all leaves in its subtree (i.e., the subtree beneath it) are all blue or all red, respectively;
+a node is colored purple if its subtree contains both blue and red leaves.
+
+We use Color(v) to denote the color of node v.
+In order to find the longest shared substring between Text1 and Text2, we need to examine all purple nodes as well as the strings spelled by paths leading to the purple nodes. A longest such string yields a solution to the Longest Shared Substring Problem.
+TREECOLORING, whose pseudocode is shown below, colors the nodes of a suffix tree from the leaves upward. This algorithm assumes that the leaves of the suffix tree have been labeled "blue" or "red" and all other nodes have been labeled "gray". A node in a tree is called ripe if it is gray but has no gray children.
+    TREECOLORING(ColoredTree)
+        while ColoredTree has ripe nodes
+            for each ripe node v in ColoredTree
+                if there exist differently colored children of v
+                    Color(v) ← "purple"
+                else
+                    Color(v) ← color of all children of v
+        return ColoredTree
+
+Tree Coloring Problem
+Color the internal nodes of a suffix tree given colors of the leaves.
+Given: An adjacency list, followed by color labels for leaf nodes.
+Return: Color labels for all nodes, in any order.
+Sample Dataset
+0 -> {}
+1 -> {}
+2 -> 0,1
+3 -> {}
+4 -> {}
+5 -> 3,2
+6 -> {}
+7 -> 4,5,6
+-
+0: red
+1: red
+3: blue
+4: blue
+6: red
+
+Sample Output
+0: red
+1: red
+2: red
+3: blue
+4: blue
+5: purple
+6: red
+7: purple

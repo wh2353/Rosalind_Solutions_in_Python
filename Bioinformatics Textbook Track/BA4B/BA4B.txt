@@ -1,0 +1,17 @@
+Figure 1. Six different reading frames give six different ways for the same fragment of DNA to be transcribed and translated, three from each strand. The top three amino acid strings are read from left to right, whereas the bottom three strings are read from right to left. Stop codons are represented by XXX.
+
+
+There are three different ways to divide a DNA string into codons for translation, one starting at each of the first three starting positions of the string. These different ways of dividing a DNA string into codons are called reading frames. Since DNA is double-stranded, a genome has six reading frames (three on each strand), as shown in Figure 1.
+We say that a DNA string Pattern encodes an amino acid string Peptide if the RNA string transcribed from either Pattern or its reverse complement Pattern translates into Peptide.
+Peptide Encoding Problem
+Find substrings of a genome encoding a given amino acid sequence.
+Given: A DNA string Text and an amino acid string Peptide.
+Return: All substrings of Text encoding Peptide (if any such substrings exist).
+Sample Dataset
+ATGGCCATGGCCCCCAGAACTGAGATCAATAGTACCCGTATTAACGGGTGA
+MA
+
+Sample Output
+ATGGCC
+GGCCAT
+ATGGCC

@@ -1,0 +1,12 @@
+
+Multiple Approximate Pattern Matching Problem
+Find all approximate occurrences of a collection of patterns in a text.
+Given: A string Text, a collection of strings Patterns, and an integer d.
+Return: All positions in Text where a string from Patterns appears as a substring with at most d mismatches.
+Sample Dataset
+ACATGCTACTTT
+ATT GCC GCTA TATT
+1
+
+Sample Output
+2 4 4 6 7 8 9

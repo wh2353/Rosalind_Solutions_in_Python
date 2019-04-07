@@ -1,0 +1,13 @@
+
+In “Compute the Number of Peptides of Given Total Mass”, we first encountered the problem of reconstructing a cyclic peptide from its theoretical spectrum; this problem is called the Cyclopeptide Sequencing Problem and is given below. It is solved by the following algorithm.
+    CYCLOPEPTIDESEQUENCING(Spectrum)        Peptides ← a set containing only the empty peptide        while Peptides is nonempty            Peptides ← Expand(Peptides)            for each peptide Peptide in Peptides                if Mass(Peptide) = ParentMass(Spectrum)                    if Cyclospectrum(Peptide) = Spectrum                        output Peptide                    remove Peptide from Peptides                else if Peptide is not consistent with Spectrum                    remove Peptide from Peptides
+
+Cyclopeptide Sequencing Problem
+Given an ideal experimental spectrum, find a cyclic peptide whose theoretical spectrum matches the experimental spectrum.
+Given: A collection of (possibly repeated) integers Spectrum corresponding to an ideal experimental spectrum.
+Return: Every amino acid string Peptide such that Cyclospectrum(Peptide) = Spectrum (if such a string exists).
+Sample Dataset
+0 113 128 186 241 299 314 427
+
+Sample Output
+186-128-113 186-113-128 128-186-113 128-113-186 113-186-128 113-128-186

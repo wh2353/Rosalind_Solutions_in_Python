@@ -1,0 +1,12 @@
+In “Find the Longest Repeat in a String”, we encountered the Longest Repeat Problem, which could be solved using a suffix tree.
+The second additional exercise that we will consider is below.
+Longest Shared Substring Problem
+Find the longest substring shared by two strings.
+Given: Strings Text1 and Text2.
+Return: The longest substring that occurs in both Text1 and Text2. (Multiple solutions may exist, in which case you may return any one.)
+Sample Dataset
+TCGGTAGATTGCGCCCACTC
+AGGGGCTCGCAGTGTAAGAA
+
+Sample Output
+AGA

@@ -1,0 +1,12 @@
+The process described in “Implement ChromosomeToCycle” is in fact invertible, as described by the following pseudocode.
+CycleToChromosome(Nodes)     for j ← 1 to |Nodes|/2          if Node2j−1 < Node2j               Chromosomej ← Node2j /2          else               Chromosomej ← −Node2j−1/2     return Chromosome
+
+Cycle To Chromosome Problem
+Solve the Cycle to Chromosome Problem.
+Given: A sequence Nodes of integers between 1 and 2n.
+Return: The chromosome Chromosome containing n synteny blocks resulting from applying CycleToChromosome to Nodes.
+Sample Dataset
+(1 2 4 3 6 5 7 8)
+
+Sample Output
+(+1 -2 -3 +4)

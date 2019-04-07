@@ -1,0 +1,17 @@
+Like peptide sequencing algorithms, peptide identification algorithms may return an erroneous peptide, particularly if the score of the highest-scoring peptide found in the proteome is much lower than the score of the highest-scoring peptide over all peptides. For this reason, biologists usually establish a score threshold and only pay attention to a solution of the Peptide Identification Problem if its score is at least equal to the threshold.
+Given a set of spectral vectors SpectralVectors, an amino acid string Proteome, and a score threshold threshold, we will solve the Peptide Identification Problem for each vector Spectrum' in SpectralVectors and identify a peptide Peptide having maximum score for this spectral vector over all peptides in Proteome (ties are broken arbitrarily). If Score(Peptide, Spectrum) is greater than or equal to threshold, then we conclude that Peptide is present in the sample and call the pair (Peptide, Spectrum') a Peptide- Spectrum Match (PSM). The resulting collection of PSMs for SpectralVectors is denoted PSMthreshold(Proteome, SpectralVectors).
+The following pseudocode identifies all PSMs scoring above a threshold for a set of spectra and a proteome, using an algorithm that you just implemented to solve the Peptide identification Problem, which we call PeptideIdentification.
+PSMSearch(SpectralVectors, Proteome, threshold).     PSMSet ← an empty set     for each vector Spectrum' in SpectralVectors          Peptide ← PeptideIdentification(Spectrum', Proteome)          if Score(Peptide, Spectrum) ≥ threshold               add the PSM (Peptide, Spectrum') to PSMSet     return PSMSet
+PSM Search Problem
+Identify Peptide-Spectrum Matches by matching spectra against a proteome.
+Given: A set of space-delimited spectral vectors SpectralVectors, an amino acid string Proteome, and a score threshold T.
+Return: All unique Peptide-Spectrum Matches scoring at least as high as T.
+Note: For this chapter, all dataset problems implicitly use the standard integer-valued mass table for the regular twenty amino acids. Examples sometimes use imaginary amino acids X: 4, Z: 5.
+Sample Dataset
+-1 5 -4 5 3 -1 -4 5 -1 0 0 4 -1 0 1 4 4 4
+-4 2 -2 -4 4 -5 -1 4 -1 2 5 -3 -1 3 2 -3
+XXXZXZXXZXZXXXZXXZX
+5
+
+Sample Output
+XZXZ

@@ -1,0 +1,13 @@
+Given an amino acid string Peptide, its ideal spectrum, denoted IdealSpectrum(Peptide), is the collection of integer masses of all its prefixes and suffixes. Note that an ideal spectrum may have repeated masses; for example, IdealSpectrum(GPG) = {0, 57, 57, 154, 154, 211}. We say that an amino acid string Peptide explains a collection of integers Spectrum if IdealSpectrum(Peptide) = Spectrum.
+The following pseudocode finds a peptide explaining a given spectrum.
+DecodingIdealSpectrum(Spectrum)     construct Graph(Spectrum)     for each path Path from source to sink in Graph(Spectrum)          Peptide ← the amino acid string spelled by the edge labels of Path          if IdealSpectrum(Peptide) = Spectrum                return Peptide
+Decoding an Ideal Spectrum Problem
+Reconstruct a peptide from its ideal spectrum.
+Given: A space-delimited list of integers, Spectrum.
+Return: An amino acid string with an ideal spectrum that matches Spectrum.
+Note: In this chapter, all dataset problems implicitly use the standard integer-valued mass table for the regular twenty amino acids. Examples sometimes use imaginary amino acids X and Z having respective integer masses 4 and 5.
+Sample Dataset
+57 71 154 185 301 332 415 429 486
+
+Sample Output
+GPFNA

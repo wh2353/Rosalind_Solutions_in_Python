@@ -1,0 +1,10 @@
+Linear Peptide Scoring Problem
+Compute the score of a linear peptide with respect to a spectrum.
+Given: An amino acid string Peptide and a collection of integers LinearSpectrum.
+Return: The linear score of Peptide against Spectrum, LinearScore(Peptide, Spectrum).
+Sample Dataset
+NQEL
+0 99 113 114 128 227 257 299 355 356 370 371 484
+
+Sample Output
+8

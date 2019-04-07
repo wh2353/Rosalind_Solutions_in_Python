@@ -1,0 +1,12 @@
+The colored edges in the breakpoint graph of P and Q are given by ColoredEdges(P) together with ColoredEdges(Q). Note that some edges in these two sets may connect the same two nodes, which results in trivial cycles.
+We will find it helpful to implement a function converting a genome graph back into a genome.
+GraphToGenome(GenomeGraph)     P ← an empty set of chromosomes     for each cycle Nodes in GenomeGraph          Chromosome ← CycleToChromosome(Nodes)          add Chromosome to P     return P
+Graph To Genome Problem
+Solve the Graph To Genome Problem.
+Given: The colored edges of a genome graph.
+Return: A genome corresponding to the genome graph.
+Sample Dataset
+(2, 4), (3, 6), (5, 1), (7, 9), (10, 12), (11, 8)
+
+Sample Output
+(+1 -2 -3)(-4 +5 -6)

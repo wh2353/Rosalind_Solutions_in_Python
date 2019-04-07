@@ -1,0 +1,18 @@
+
+In “Find an Eulerian Cycle in a Graph”, we defined an Eulerian cycle. A path that traverses each edge of a graph exactly once (but does not necessarily return to its starting node is called an Eulerian path.
+Eulerian Path Problem
+Find an Eulerian path in a graph.
+Given: A directed graph that contains an Eulerian path, where the graph is given in the form of an adjacency list.
+Return: An Eulerian path in this graph.
+Sample Dataset
+0 -> 2
+1 -> 3
+2 -> 1
+3 -> 0,4
+6 -> 3,7
+7 -> 8
+8 -> 9
+9 -> 6
+
+Sample Output
+6->7->8->9->6->3->0->2->1->3->4

@@ -1,0 +1,11 @@
+We can also invert the conversion of a peptide into a peptide vector, so that the terms "peptide" and "peptide vector" can be used interchangeably.
+Converting Peptide Vector into Peptide Problem
+Convert a binary vector into a peptide.
+Given: A space-delimited binary vector P.
+Return: A peptide whose binary peptide vector matches P. For masses with more than one amino acid, any choice may be used.
+Note: In this chapter, all dataset problems implicitly use the standard integer-valued mass table for the regular twenty amino acids. Examples sometimes use imaginary amino acids X and Z having respective integer masses 4 and 5.
+Sample Dataset
+0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1 0 0 0 1
+
+Sample Output
+XZZXX

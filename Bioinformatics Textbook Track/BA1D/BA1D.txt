@@ -1,0 +1,12 @@
+
+In this problem, we ask a simple question: how many times can one string occur as a substring of another? Recall from “Find the Most Frequent Words in a String” that different occurrences of a substring can overlap with each other.  For example,  \color{green}\textbf{ATA} occurs three times in \text{CG}\color{green}\textbf{ATATA}\color{black}\text{TCC}\color{green}\textbf{ATA}\color{black}\text{G}.
+Pattern Matching Problem
+Find all occurrences of a pattern in a string.
+Given: Strings Pattern and Genome.
+Return: All starting positions in Genome where Pattern appears as a substring.  Use 0-based indexing.
+Sample Dataset
+ATAT
+GATATATGCATATACTT
+
+Sample Output
+1 3 9

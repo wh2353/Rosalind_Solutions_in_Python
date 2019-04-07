@@ -1,0 +1,10 @@
+In “Construct the Burrows-Wheeler Transform of a String”, we introduced the Burrows-Wheeler transform of a string Text. In this problem, we give you the opportunity to reverse this transform.
+Inverse Burrows-Wheeler Transform Problem
+Reconstruct a string from its Burrows-Wheeler transform.
+Given: A string Transform (with a single "" sign).
+Return: The string Text such that BWT(Text) = Transform.
+Sample Dataset
+TTCCTAACGA
+
+Sample Output
+TACATCACGT

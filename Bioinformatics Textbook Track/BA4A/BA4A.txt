@@ -1,0 +1,15 @@
+Figure 1. The genetic code describes the translation of an RNA codon into one of 20 different amino acids. The first three circles, moving from the inside out, represent the 1st, 2nd, and 3rd nucleotides of a given codon. The 4th, 5th, and 6th circles define the translated amino acid in three ways: the amino acid’s full name, its 3-letter abbreviation, and its single-letter abbreviation. Three of the 64 total RNA codons are stop codons, which halt translation and implicitly add a 21st stop symbol to the amino acid alphabet. Reproduced from Open Clip Art.
+
+
+Much like replication, the chemical machinery underlying transcription and translation is fascinating, but from a computational perspective, both processes are straightforward. Transcription simply transforms a DNA string into an RNA string by replacing all occurrences of "T" with "U". The resulting strand of RNA is translated into an amino acid sequence via the genetic code; this process converts each 3-mer of RNA, called a codon, into one of 20 amino acids.
+As illustrated in Figure 1, each of the 64 RNA codons encodes its own amino acid (some codons encode the same amino acid), with the exception of three stop codons that do not translate into amino acids and serve to halt translation. For example, the DNA string "TATACGAAA" transcribes into the RNA string "UAUACGAAA", which in turn translates into the amino acid string "Tyr-Thr-Lys".
+The following problem asks you to find the translation of an RNA string into an amino acid string.
+Protein Translation Problem
+Translate an RNA string into an amino acid string.
+Given: An RNA string Pattern.
+Return: The translation of Pattern into an amino acid string Peptide.
+Sample Dataset
+AUGGCCAUGGCGCCCAGAACUGAGAUCAAUAGUACCCGUAUUAACGGGUGA
+
+Sample Output
+MAMAPRTEINSTRING

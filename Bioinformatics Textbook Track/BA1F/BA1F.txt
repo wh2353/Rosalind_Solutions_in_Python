@@ -1,0 +1,12 @@
+
+Define the skew of a DNA string Genome, denoted Skew(Genome), as the difference between the total number of occurrences of 'G' and 'C' in Genome.  Let Prefixi (Genome) denote the prefix (i.e., initial substring) of Genome of length i. For example, the values of Skew(Prefixi ("\color{red}\textbf{C}\color{black}\text{AT}\color{green}\textbf{GGG}\color{red}\textbf{C}\color{black}\text{AT}\color{red}\textbf{C}\color{green}\textbf{GG}\color{red}\textbf{CC}\color{black}\text{ATA}\color{red}\textbf{C}\color{green}\textbf{G}\color{red}\textbf{CC}")) are:
+0 -1 -1 -1 0 1 2 1 1 1 0 1 2 1 0 0 0 0 -1 0 -1 -2
+Minimum Skew Problem
+Find a position in a genome minimizing the skew.
+Given: A DNA string Genome.
+Return: All integer(s) i minimizing Skew(Prefixi (Text)) over all values of i (from 0 to |Genome|).
+Sample Dataset
+CCTATCGGTGGATTAGCATGTCCCTGTACGTTTCGCCGCGAACTAGTTCACACGGCTTGATGGCAAATGGTTTTTCCGGCGACCGTAATCGTCCACCGAG
+
+Sample Output
+53 97

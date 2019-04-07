@@ -1,0 +1,20 @@
+The d-neighborhood Neighbors(Pattern, d) is the set of all k-mers whose Hamming distance from Pattern does not exceed d.
+Generate the d-Neighborhood of a String
+Find all the neighbors of a pattern.
+Given: A DNA string Pattern and an integer d.
+Return: The collection of strings Neighbors(Pattern, d).
+Sample Dataset
+ACG
+1
+
+Sample Output
+CCG
+TCG
+GCG
+AAG
+ATG
+AGG
+ACA
+ACC
+ACT
+ACG

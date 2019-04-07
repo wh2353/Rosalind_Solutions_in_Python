@@ -1,0 +1,19 @@
+Figure 1. The shared 3-mers of AAACTCATC and TTTCAAATC. The second pair are shown in blue because they are reverse complementary. The four pairs of shared *k*-mers can be represented by the ordered pairs (0,4), (0,0), (4,2), and (6,6).
+
+
+We say that a k-mer is shared by two genomes if either the k-mer or its reverse complement appears in each genome. In Figure 1 are four pairs of 3-mers that are shared by "AAACTCATC" and "TTTCAAATC".
+A shared k-mer can be represented by an ordered pair (x, y), where x is the starting position of the k-mer in the first genome and y is the starting position of the k-mer in the second genome.  For the genomes "AAACTCATC" and "TTTCAAATC", these shared k-mers are (0,4), (0,0), (4,2), and (6,6).
+Shared k-mers Problem
+Given two strings, find all their shared k-mers.
+Given: An integer k and two strings.
+Return: All k-mers shared by these strings, in the form of ordered pairs (x, y)  corresponding to starting positions of these k-mers in the respective strings.
+Sample Dataset
+3
+AAACTCATC
+TTTCAAATC
+
+Sample Output
+(0, 4)
+(0, 0)
+(4, 2)
+(6, 6)

@@ -1,0 +1,13 @@
+Given an amino acid string Peptide = a1 . . . an of length n, we will represent its prefix masses using a binary peptide vector Peptide' with mass(Peptide) coordinates. This vector contains a 1 at each of the n prefix coordinates
+mass(a1), mass(a1 a2), . . . , mass(a1 a2 . . . an ) ,
+and it contains a 0 in each of the remaining noise coordinates. The toy peptide XZZXX, whose prefix masses are 4, 9, 14, 18, and 22, corresponds to the peptide vector (0,0,0,1,0,0,0,0,1,0,0,0,0,1,0,0,0,1,0,0,0,1) of length 22.
+Converting Peptide into Peptide Vector Problem
+Convert a peptide into a binary peptide vector.
+Given: A peptide P.
+Return: The peptide vector of P.
+Note: In this chapter, all dataset problems implicitly use the standard integer-valued mass table for the regular twenty amino acids. Examples sometimes use imaginary amino acids X and Z having respective integer masses 4 and 5.
+Sample Dataset
+XZZXX
+
+Sample Output
+0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1 0 0 0 1

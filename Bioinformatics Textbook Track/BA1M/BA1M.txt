@@ -1,0 +1,10 @@
+Implement NumberToPattern
+Convert an integer to its corresponding DNA string.
+Given: Integers index and k.
+Return: NumberToPattern(index, k).
+Sample Dataset
+45
+4
+
+Sample Output
+AGTC

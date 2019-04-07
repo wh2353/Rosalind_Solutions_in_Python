@@ -1,0 +1,16 @@
+In addition to searching for mutated peptides, we will also need to search for post-translational modifications, which alter amino acids after a protein has been translated from RNA. In fact, most proteins are modified after translation, and hundreds of types of modifications have been discovered. For example, the enzymatic activity of many proteins is regulated by the addition or removal of a phosphate group at a specific amino acid. This process, called phosphorylation, is reversible; protein kinases add phosphate groups, whereas protein phosphatases remove them.
+A modification of mass δ applied to an amino acid results in adding δ to the mass of this amino acid. For example, δ = 80 for phosphorylated amino acids (serine, threonine, and tyrosine), δ = 16 for the modification of proline into hydroxyproline, and δ = −1 for the modification of lysine into allysin. If δ is positive, then the resulting modified peptide has a peptide vector that differs from the original peptide vector Peptide' by inserting a block of δ zeroes before the i-th occurrence of 1 in Peptide'. In the more rare case that δ is negative, the modified peptide corresponds to deleting a block of |δ| zeroes from Peptide'.
+We will use the term block indel to refer to the addition or removal of a block of consecutive zeroes from a binary vector. Thus, applying k modifications to an amino ￼acid string Peptide corresponds to applying k block indels to its peptide vector Peptide'. We define Variantsk(Peptide) as the set of all modified variants of Peptide with up to k modifications.
+Given a peptide Peptide and a spectral vector Spectrum', our goal is to find a modified peptide from Variantsk(Peptide) with maximum score against Spectrum'.
+Spectral Alignment Problem
+Given a peptide and a spectral vector, find a modified variant of this peptide that maximizes the peptide-spectrum score among all variants of the peptides with up to k modifications.
+Given: A peptide Peptide, a spectral vector Spectrum', and an integer k.
+Return: A peptide Peptide' related to Peptide by up to k modifications with maximal score against Spectrum' out of all possibilities.
+Note: In this chapter, all dataset problems implicitly use the standard integer-valued mass table for the regular twenty amino acids. Examples sometimes use imaginary amino acids X and Z having respective integer masses 4 and 5.
+Sample Dataset
+XXZ
+4 -3 -2 3 3 -4 5 -3 -1 -1 3 4 1 3
+2
+
+Sample Output
+XX(-1)Z(+2)

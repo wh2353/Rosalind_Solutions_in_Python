@@ -1,0 +1,19 @@
+
+Given a genome Text, PathGraphk(Text) is the path consisting of |Text| - k + 1 edges, where the i-th edge of this path is labeled by the i-th k-mer in Text and the i-th node of the path is labeled by the i-th (k - 1)-mer in Text. The de Bruijn graph DeBruijnk(Text) is formed by gluing identically labeled nodes in PathGraphk(Text).
+De Bruijn Graph from a String Problem
+Construct the de Bruijn graph of a string.
+Given: An integer k and a string Text.
+Return:DeBruijnk(Text), in the form of an adjacency list.
+Sample Dataset
+4
+AAGATTCTCTAC
+
+Sample Output
+AAG -> AGA
+AGA -> GAT
+ATT -> TTC
+CTA -> TAC
+CTC -> TCT
+GAT -> ATT
+TCT -> CTA,CTC
+TTC -> TCT

@@ -1,0 +1,20 @@
+
+Given a k-mer Pattern and a longer string Text, we use d(Pattern, Text) to denote the minimum Hamming distance between Pattern and any k-mer in Text,
+d(\textit{Pattern}, \textit{Text}) = \min\limits_{\text{all k-mers Pattern' in Text}}{HammingDistance(Pattern, Pattern')}.
+Given a k-mer Pattern and a set of strings Dna = {Dna1, … , Dnat}, we define d(Pattern, Dna) as the sum of distances between Pattern and all strings in Dna,
+d(\textit{Pattern},\textit{Dna}) = \sum\limits_{i=1}^t d(\textit{Pattern},\textit{Dna}_i).
+Our goal is to find a k-mer Pattern that minimizes d(Pattern, Dna) over all k-mers Pattern, the same task that the Equivalent Motif Finding Problem is trying to achieve.  We call such a k-mer a median string for Dna.
+Median String Problem
+Find a median string.
+Given: An integer k and a collection of strings Dna. 
+Return: A k-mer Pattern that minimizes d(Pattern, Dna) over all k-mers Pattern. (If multiple answers exist, you may return any one.)
+Sample Dataset
+3
+AAATTGACGCAT
+GACGACCACGTT
+CGTCAGCGCCTG
+GCTGAGCACCGG
+AGTACGGGACAG
+
+Sample Output
+GAC

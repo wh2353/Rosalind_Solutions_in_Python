@@ -1,0 +1,13 @@
+To construct the partial suffix array SuffixArrayk(Text), we first need to construct the full suffix array and then retain only the elements of this array that are divisible by K, along with their indices i.
+Partial Suffix Array Construction Problem
+Construct the partial suffix array of a string.
+Given: A string Text and a positive integer K.
+Return: SuffixArrayK(Text), in the form of a list of ordered pairs (i, SuffixArray(i)) for all nonempty entries in the partial suffix array.
+Sample Dataset
+PANAMABANANAS
+5
+
+Sample Output
+1,5
+11,10
+12,0

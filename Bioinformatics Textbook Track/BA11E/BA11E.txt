@@ -1,0 +1,13 @@
+Given a spectral vector Spectrum', our goal is to find a peptide Peptide maximizing Score(Peptide, Spectrum'). Since the mass of a peptide and the parent mass of the spectrum that it generates should be the same, a peptide vector should have the same length as the spectral vector under consideration. We will therefore define the score between a peptide vector and a spectral vector of different length as −∞.
+Given a spectral vector Spectrum' = (s1, . . . , sm), our goal is to find a peptide with maximum score against this spectral vector. To do so, we will construct a DAG on m + 1 nodes, labeled with the integers from 0 (source) to m (sink), and then connect node i to node j by a directed edge if j − i is equal to the mass of an amino acid. We will further assign weight si to node i (for 1 ≤ i ≤ m) and assign weight zero to node 0.
+Any path connecting source to sink in this DAG corresponds to an amino acid string Peptide, and the total weight of nodes on this path is equal to Score(Peptide', Spectrum'). We have therefore reduced the Peptide Sequencing Problem to the problem of finding a maximum-weight path from source to sink in a node-weighted DAG.
+Peptide Sequencing Problem
+Given a spectral vector S, find a peptide vector with maximum score against S.
+Given: A space-delimited spectral vector S.
+Return: A peptide with maximum score against S. For masses with more than one amino acid, any choice may be used.
+Note: In this chapter, all dataset problems implicitly use the standard integer-valued mass table for the regular twenty amino acids. Examples sometimes use imaginary amino acids X and Z having respective integer masses 4 and 5.
+Sample Dataset
+0 0 0 4 -2 -3 -1 -7 6 5 3 2 1 9 3 -8 0 3 1 2 1 0
+
+Sample Output
+XZZXX

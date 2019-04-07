@@ -1,0 +1,12 @@
+Despite many attempts, researchers have still not devised a scoring function that reliably assigns the highest score to the biologically correct peptide, i.e., the peptide that generated the spectrum. Fortunately, although the correct peptide often does not achieve the highest score among all peptides, it typically does score highest among all peptides limited to the species’s proteome. As a result, we can transition from peptide sequencing to peptide identification by limiting our search to peptides present in the proteome, which we concatenate into a single amino acid string Proteome.
+Peptide Identification Problem
+Find a peptide from a proteome with maximum score against a spectrum.
+Given: A space-delimited spectral vector S and an amino acid string Proteome.
+Return: A peptide in Proteome with maximum score against S.
+Note: In this chapter, all dataset problems implicitly use the standard integer-valued mass table for the regular twenty amino acids. Examples sometimes use imaginary amino acids X and Z having respective integer masses 4 and 5.
+Sample Dataset
+0 0 0 4 -2 -3 -1 -7 6 5 3 2 1 9 3 -8 0 3 1 2 1 8
+XZZXZXXXZXZZXZXXZ
+
+Sample Output
+ZXZXX

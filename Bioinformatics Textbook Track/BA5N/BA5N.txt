@@ -1,0 +1,12 @@
+Topological Ordering Problem
+Find a topological ordering of a directed acyclic graph.
+Given: The adjacency list of a graph (with nodes represented by integers).
+Return: A topological ordering of this graph.
+Sample Dataset
+1 -> 2
+2 -> 3
+4 -> 2
+5 -> 3
+
+Sample Output
+1, 4, 5, 2, 3

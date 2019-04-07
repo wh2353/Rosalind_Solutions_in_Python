@@ -1,0 +1,14 @@
+Gapped Genome Path String Problem
+Reconstruct a string from a sequence of (k,d)-mers corresponding to a path in a paired de Bruijn graph.
+Given: A sequence of (k, d)-mers (a1|b1), ... , (an|bn) such that Suffix(ai|bi) = Prefix(ai+1|bi+1) for all i from 1 to n-1.
+Return: A string Text where the i-th k-mer in Text is equal to Suffix(ai|bi) for all i from 1 to n, if such a string exists.
+Sample Dataset
+4 2
+GACC|GCGC
+ACCG|CGCC
+CCGA|GCCG
+CGAG|CCGG
+GAGC|CGGA
+
+Sample Output
+GACCGAGCGCCGGA

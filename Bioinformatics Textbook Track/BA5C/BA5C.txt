@@ -1,0 +1,10 @@
+
+Longest Common Subsequence Problem
+Given: Two strings.
+Return: A longest common subsequence of these strings.
+Sample Dataset
+AACCTTGG
+ACACTGTGA
+
+Sample Output
+AACTGG

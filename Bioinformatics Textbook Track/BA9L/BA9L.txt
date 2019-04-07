@@ -1,0 +1,27 @@
+We are now ready to describe BWMATCHING, an algorithm that counts the total number of matches of Pattern in Text, where the only information that we are given is FirstColumn and LastColumn = BWT(Text) in addition to the Last-to-First mapping (from “Generate the Last-to-First Mapping of a String”). The pointers top and bottom are updated by the green lines in the following pseudocode.
+    BWMATCHING(FirstColumn, LastColumn, Pattern, LastToFirst)
+        top ← 0
+        bottom ← |LastColumn| − 1
+        while top ≤ bottom
+            if Pattern is nonempty
+                symbol ← last letter in Pattern
+                remove last letter from Pattern
+                if positions from top to bottom in LastColumn contain an occurrence of symbol
+                    topIndex ← first position of symbol among positions from top to bottom in LastColumn
+                    bottomIndex ← last position of symbol among positions from top to bottom in LastColumn
+                    top ← LastToFirst(topIndex)
+                    bottom ← LastToFirst(bottomIndex)
+                else
+                    return 0
+            else
+                return bottom − top + 1
+
+Implement BWMatching
+Given: A string BWT(Text), followed by a collection of strings Patterns.
+Return: A list of integers, where the i-th integer corresponds to the number of substring matches of the i-th member of Patterns in Text.
+Sample Dataset
+TCCTCTATGAGATCCTATTCTATGAAACCTTCAGACCAAAATTCTCCGGC
+CCT CAC GAG CAG ATC
+
+Sample Output
+2 1 1 0 1

@@ -1,0 +1,15 @@
+
+Say that we wish to compare the approximately 20,000 amino acid-long NRP synthetase from Bacillus brevis with the approximately 600 amino acid-long A-domain from Streptomyces roseosporus, the bacterium that produces the powerful antibiotic Daptomycin. We hope to find a region within the longer protein sequence v that has high similarity with all of the shorter sequence w. Global alignment will not work because it tries to align all of v to all of w; local alignment will not work because it tries to align substrings of both v and w. Thus, we have a distinct alignment application called the Fitting Alignment Problem.
+“Fitting” w to v requires finding a substring v′ of v that maximizes the global alignment score between v′ and w among all substrings of v. 
+Fitting Alignment Problem
+Construct a highest-scoring fitting alignment between two strings.
+Given: Two DNA strings v and w, where v has length at most 10000 and w has length at most 1000.
+Return: The maximum score of a fitting alignment of v and w, followed by a fitting alignment achieving this maximum score. Use the simple scoring method in which matches count +1 and both the mismatch and indel penalties are equal to 1. (If multiple fitting alignments achieving the maximum score exist, you may return any one.)
+Sample Dataset
+GTAGGCTTAAGGTTA
+TAGATA
+
+Sample Output
+2
+TAGGCTTA
+TAGA--TA

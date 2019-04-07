@@ -1,0 +1,22 @@
+Note that the equation for the probability of a dictionary (introduced in “Compute the Size of a Spectral Dictionary”),
+\mathrm{Pr}(\textit{Dictionary}) = \displaystyle\sum_{\text{each peptide }\textit{Peptide}\text{ in }\textit{Dictionary}} \dfrac{1}{20^{|\textit{Peptide}|}},
+is similar to an equation for the size of a dictionary,
+|\textit{Dictionary}|= \displaystyle\sum_{\text{each peptide }\textit{Peptide}\text{ in }\textit{Dictionary}}1.
+This similarity suggests that we can derive a recurrence for the probability of a dictionary using arguments similar to those used to find the size of a dictionary.
+So define Pr(i, t) as the sum of probabilities of all peptides with mass i for which Score(Peptide,  Spectrum'i ) is equal to t. The set of peptides contributing to Pr(i, t) can be split into 20 subsets depending on their final amino acid. Each peptide Peptide ending in a specific amino acid a results in a shorter peptide Peptidea if we remove a; Peptidea has mass i − |a| and score t − si. Since the probability of Peptide is 20 times smaller than the probability of Peptidea, the contribution of Peptide to Pr(i, t) is 20 times smaller than contribution of Peptidea to Pr(i − |a|, t − si ). Therefore, Pr(i, t) can be computed as
+\mathrm{Pr}(i, t) = \displaystyle\sum_{\text{all amino acids }a} \frac{1}{20} \cdot \mathrm{Pr}(i - |a|, t - s_i),
+which differs from the recurrence for computing Size(i, t) only in the presence of the factor 1/20. We can now compute the probability of a spectral dictionary as
+\mathrm{Pr}(\textit{Dictionary}_{\textit{threshold}}({\textit{Spectrum'}})) = \displaystyle\sum_{t \geq \textit{threshold}} \mathrm{Pr}(m, t).
+Probability of Spectral Dictionary Problem
+Find the probability of the spectral dictionary for a given spectrum and score threshold.
+Given: A spectral vector Spectrum', an integer threshold, and an integer max_score.
+Return: The probability of the dictionary Dictionarythreshold(Spectrum').
+Note: Use the provided max_score for the height of your table. 
+Note: In this chapter, all dataset problems implicitly use the standard integer-valued mass table for the regular twenty amino acids. Examples sometimes use imaginary amino acids X and Z having respective integer masses 4 and 5.
+Sample Dataset
+4 -3 -2 3 3 -4 5 -3 -1 -1 3 4 1 3
+1
+8
+
+Sample Output
+0.375

@@ -1,0 +1,9 @@
+Implement PatternToNumber
+Convert a DNA string to a number.
+Given: A DNA string Pattern.
+Return: PatternToNumber(Pattern).
+Sample Dataset
+AGT
+
+Sample Output
+11

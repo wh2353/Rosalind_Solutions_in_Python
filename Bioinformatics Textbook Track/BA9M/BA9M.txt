@@ -1,0 +1,35 @@
+If you implemented BWMATCHING in “Implement BWMatching”, you probably found the algorithm to be slow. The reason for its sluggishness is that updating the pointers top and bottom is time-intensive, since it requires examining every symbol in LastColumn between top and bottom at each step. To improve BWMATCHING, we introduce a function Countsymbol(i, LastColumn), which returns the number of occurrences of symbol in the first i positions of LastColumn. For example, Count"n”(10, "smnpbnnaaaaaa”) = 3, and Count"a”(4, "smnpbnnaaaaaa”) = 0.
+The green lines from BWMATCHING can be compactly described without the First-to-Last mapping by the following two lines:
+    top ← position of symbol with rank Countsymbol(top, LastColumn) + 1 in FirstColumn
+    bottom ← position of symbol with rank Countsymbol(bottom + 1, LastColumn) in FirstColumn
+
+Define FirstOccurrence(symbol) as the first position of symbol in FirstColumn. If Text = "panamabananas", then FirstColumn is "aaaaaabmnnnps", and the array holding all values of FirstOccurrence is [0, 1, 7, 8, 9, 11, 12]. For DNA strings of any length, the array FirstOccurrence contains only five elements.
+The two lines of pseudocode from the previous step can now be rewritten as follows:
+    top ← FirstOccurrence(symbol) + Countsymbol(top, LastColumn)
+    bottom ← FirstOccurrence(symbol) + Countsymbol(bottom + 1, LastColumn) − 1
+
+In the process of simplifying the green lines of pseudocode from BWMATCHING, we have also eliminated the need for both FirstColumn and LastToFirst, resulting in a more efficient algorithm called BETTERBWMATCHING.
+    BETTERBWMATCHING(FirstOccurrence, LastColumn, Pattern, Count)
+        top ← 0
+        bottom ← |LastColumn| − 1
+        while top ≤ bottom
+            if Pattern is nonempty
+                symbol ← last letter in Pattern
+                remove last letter from Pattern
+                if positions from top to bottom in LastColumn contain an occurrence of symbol
+                    top ← FirstOccurrence(symbol) + Countsymbol(top, LastColumn)
+                    bottom ← FirstOccurrence(symbol) + Countsymbol(bottom + 1, LastColumn) − 1
+                else
+                    return 0
+            else
+                return bottom − top + 1
+
+Implement BetterBWMatching
+Given: A string BWT(Text), followed by a collection of strings Patterns.
+Return: A list of integers, where the i-th integer corresponds to the number of substring matches of the i-th member of Patterns in Text.
+Sample Dataset
+GGCGCCGCTAGTCACACACGCCGTA
+ACC CCG CAG
+
+Sample Output
+1 2 1

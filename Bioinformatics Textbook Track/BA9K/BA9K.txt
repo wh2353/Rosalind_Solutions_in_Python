@@ -1,0 +1,10 @@
+The Last-to-First array, denoted LastToFirst(i), answers the following question: given a symbol at position i in LastColumn, what is its position in FirstColumn?
+Last-to-First Mapping Problem
+Given: A string Transform and an integer i.
+Return: The position LastToFirst(i) in FirstColumn in the Burrows-Wheeler matrix if LastColumn = Transform.
+Sample Dataset
+TGACCA
+3
+
+Sample Output
+1

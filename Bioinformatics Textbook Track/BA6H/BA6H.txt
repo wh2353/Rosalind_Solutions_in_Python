@@ -1,0 +1,11 @@
+The following algorithm constructs ColoredEdges(P) for a genome P. In this pseudocode, we will assume that an n-element array (a1, . . . , an) has an invisible (n + 1)-th element that is equal to its first element, i.e., an+1 = a1.
+ColoredEdges(P)     Edges ← an empty set     for each chromosome Chromosome in P          Nodes ← ChromosomeToCycle(Chromosome)          for j ← 1 to |Chromosome|               add the edge (Nodes2j, Nodes2j +1) to Edges     return Edges
+Colored Edges Problem
+Find the Colored Edges in a genome.
+Given: A genome P.
+Return: The collection of colored edges in the genome graph of P in the form (x, y).
+Sample Dataset
+(+1 -2 -3)(+4 +5 -6)
+
+Sample Output
+(2, 4), (3, 6), (5, 1), (8, 9), (10, 12), (11, 7)
