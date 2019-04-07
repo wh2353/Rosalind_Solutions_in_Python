@@ -77,7 +77,7 @@ if __name__ == "__main__":
         os.mkdir(dl.names[i].upper())
         path = './'+dl.names[i].upper()+'/' + fname
         dl.write(path, dl.get_contents(dl.ulrs[i]).rstrip())
-        sys.stdout.write("\n Now writing %s\n" % fname + '\r')
-        sys.stdout.write("\n Finished %.2f%%\n" % (float(i)/dl.nums*100) + '\r')
+        sys.stdout.write("\n Now writing %s\n" % fname)
+        sys.stdout.write("\n Finished %.2f%%" % (float(i)/dl.nums*100) + '\r\n')
         sys.stdout.flush()
     print ("\n Finished 100%!")
