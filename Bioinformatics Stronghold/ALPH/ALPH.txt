@@ -1,0 +1,61 @@
+
+From Characters Toward Alignments
+In “Creating a Character Table from Genetic Strings”, we used strings to create a collection of characters from which
+we could create a phylogeny.  However, the strings all had to share the same length,
+which was a problem.  In practice, we would like to create a phylogeny from genetic strings
+having differing lengths; specifically, our aim is to construct a phylogeny from a multiple
+alignment.
+Unfortunately, constructing a phylogeny from the ground up based only on an alignment can
+be difficult. In order to produce an efficient solution, we will need to assume
+that the structure of the phylogeny has already been provided (perhaps from character-based methods),
+and our aim instead is to reconstruct the genetic strings corresponding to the internal nodes
+(i.e., ancestors) in the tree.
+The ancestor strings should have the property that the total
+number of point mutations separating adjacent nodes in the tree is minimized
+(in keeping with parsimony).
+
+Problem
+Say that we have n taxa represented by strings s_1, s_2, \ldots, s_n with
+a multiple alignment inducing corresponding augmented strings \overline{s}_1, \overline{s}_2, \ldots, \overline{s}_n.
+Recall that the number of single-symbol substitutions required to transform one string into
+another is the Hamming distance between the strings (see “Counting Point Mutations”).  Say that we have a rooted binary tree T
+containing \overline{s}_1, \overline{s}_2, \ldots, \overline{s}_n at its leaves and additional strings
+\overline{s}_{n+1}, \overline{s}_{n+2}, \ldots, \overline{s}_{2n-1} at its internal nodes,
+including the root (the number of internal nodes is n-1 by extension of “Counting Phylogenetic Ancestors”).
+Define d_{\textrm{H}}(T) as the sum of d_{\textrm{H}}(\overline{s}_i, \overline{s}_j) over
+all edges \{\overline{s}_i, \overline{s}_j\} in T:
+d_{\textrm{H}}(T) = \sum\limits_{\{\overline{s}_i, \overline{s}_j\} \in E(T)}{d_{\textrm{H}}(\overline{s}_i, \overline{s}_j)}
+Thus, our aim is to minimize d_{\textrm{H}}(T).
+Given: A rooted binary tree T on n (n \leq 500) species, given in Newick format, followed by
+a multiple alignment of m (m \leq n) augmented DNA strings having the same length (at most 300 bp)
+corresponding to the species and given in FASTA format.
+Return: The minimum possible value of d_{\textrm{H}}(T), followed by a collection of DNA strings
+to be assigned to the internal nodes of T that will minimize d_{\textrm{H}}(T)
+(multiple solutions will exist, but you need only output one).
+Sample Dataset
+(((ostrich,cat)rat,(duck,fly)mouse)dog,(elephant,pikachu)hamster)robot;
+>ostrich
+AC
+>cat
+CA
+>duck
+T-
+>fly
+GC
+>elephant
+-T
+>pikachu
+AA
+
+Sample Output
+8
+>rat
+AC
+>mouse
+TC
+>dog
+AC
+>hamster
+AT
+>robot
+AC

@@ -1,0 +1,37 @@
+
+Aligning Similar Substrings
+Whereas global alignment (see “Global Alignment with Scoring Matrix”) can be helpful for comparing genetic strings of similar length that resemble each other,
+often we will be presented with strings that are mostly dissimilar except for some unknown
+region of the strings, which may represent a shared gene.
+To find such genes, we need to modify global alignment to instead search for
+shared motifs in the form of locally similar regions (recall “Finding a Shared Motif” and “Finding a Shared Spliced Motif”).
+Using global alignment often fails to find shared motifs hidden in larger strings because
+(especially if the similar region is found on different
+ends of the string) aligning the strings causes gap penalties to rack up.
+If we are only interested in comparing the regions
+of similarity, then we would like to have some way of disregarding the parts of the
+strings that don't resemble each other.  The way to do this is to produce alignment scores
+for all possible pairs of substrings.
+
+Problem
+A local alignment of two strings s and t is an alignment of substrings r and u
+of s and t, respectively.  Let \textrm{opt}(r, u) denote the score of
+an optimal alignment of r and u with respect to some predetermined alignment score.
+Given: Two protein strings s and t in FASTA format (each having length at most 1000 aa).
+Return: A maximum alignment score along with substrings r and u of s and t,
+respectively, which produce this maximum alignment score (multiple solutions may exist,
+in which case you may output any one). Use:
+
+The PAM250 scoring matrix.
+Linear gap penalty equal to 5.
+
+Sample Dataset
+>Rosalind_80
+MEANLYPRTEINSTRING
+>Rosalind_21
+PLEASANTLYEINSTEIN
+
+Sample Output
+23
+LYPRTEINSTRIN
+LYEINSTEIN

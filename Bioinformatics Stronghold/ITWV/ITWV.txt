@@ -1,0 +1,35 @@
+
+Disjoint Motifs
+In this problem, we will consider an algorithmic (but not particularly practical)
+variant of motif finding for multiple motifs.
+Say we have two motifs corresponding to the coding regions of genes,
+and we want to know whether these motifs can be found in genes
+occupying the same region of the genome.
+To prevent exons from coinciding, we further stipulate that the two motifs are nonoverlapping.
+In this problem, we will ask whether two disjoint motifs can be located in a given string.
+We considered a similar problem in “Interleaving Two Motifs”, which asked us to find a shortest
+possible string containing two motifs; however, in that problem, the motifs were allowed to coincide.
+
+Problem
+Given three strings s, t, and u, we say that t and u can be interwoven into s if
+there is some substring of s made up of t and u as disjoint subsequences.
+For example, the strings "\color{blue}\text{ACAG}" and "\color{red}\text{CCG}" can be interwoven into "\color{black}\text{G}\color{blue}\text{A}\color{red}\text{C}\color{blue}\text{CA}\color{red}\text{C}\color{blue}\text{G}\color{red}\text{G}\color{black}\text{TT}".
+However, they cannot be interwoven into "\color{black}\text{G}\color{blue}\text{A}\color{red}\text{C}\color{blue}\text{CA}\color{red}\text{C}\color{black}\text{AAAA}\color{blue}\text{G}\color{red}\text{G}\color{black}\text{TT}"
+because of the appearance of the four 'A's in the middle of the subsequences.
+Similarly, even though both "\textrm{ACACG}" is a shortest common supersequence of
+\textrm{ACAG} and \textrm{CCG}, it is not possible to interweave these two strings into "\textrm{ACACG}"
+because the two desired subsequences must be disjoint; see “Interleaving Two Motifs” for details on finding a shortest common supersequence of two strings.
+Given: A text DNA string s of length at most 10 kbp,
+followed by a collection of n (n \leq 10) DNA strings of length at most 10 bp acting as patterns.
+Return: An n \times n matrix M for which M_{j, k} = 1 if the jth and kth
+pattern strings can be interwoven into s and M_{j, k} = 0 otherwise.
+Sample Dataset
+GACCACGGTT
+ACAG
+GT
+CCG
+
+Sample Output
+0 0 1
+0 1 0
+1 0 0

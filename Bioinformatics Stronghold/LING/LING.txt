@@ -1,0 +1,53 @@
+
+Getting Repetitive
+We have seen that every genome contains a large number of repeats and noted that the Alu
+repeat recurs around a million times on the human genome.  Yet exactly how repetitive
+is the human genome?
+To frame such a vague question mathematically, we first need to make the observation that if the genome were
+formed by adding nucleobases randomly, with each base having a 1/4 probability of being
+added at each nucleotide position, then we should expect to see a huge number
+of different substrings in the genome.  Yet (to take a simple case) the genome containing
+only adenosine and forming the DNA string "AAAAAA...AAA" has relatively very few
+distinct substrings.
+Now, real genomes are formed by a process that chooses nucleotides somewhere
+in between these two extreme cases, and so to quantify just how random this process is,
+we need to take the percentage of distinct substrings appearing in a genome with respect
+to the maximum possible number of distinct substrings that could appear in a genome of the same
+length.
+
+Problem
+Given a length n string s formed over an alphabet \mathscr{A} of size a, let
+the "substring count" \textrm{sub}(s) denote the total number of distinct substrings of s.
+Furthermore, let the "maximum substring count" m(a, n) denote the maximum number of distinct substrings
+that could appear in a string of length n formed over \mathscr{A}.
+The linguistic complexity of s (written \textrm{lc}(s)) is equal to \frac{\textrm{sub}(s)}{m(a, n)};
+in other words, \textrm{lc}(s) represents the percentage of observed substrings of s to
+the total number that are theoretically possible.  Note that 0 < \textrm{lc}(s) < 1, with smaller
+values of \textrm{lc}(s) indicating that s is more repetitive.
+As an example, consider the DNA string (a = 4) s = \textrm{ATTTGGATT}.  In the following
+table, we demonstrate that \textrm{lc}(s) = \frac{35}{40} = 0.875 by considering
+the number of observed and possible length k substrings of s, which are denoted by
+\textrm{sub}_{k}(s) and m(a, k, n), respectively.
+(Observe that m(a, n) = \sum_{k=1}^{n}{m(a,k,n)} = 40 and \textrm{sub}(s)= \sum_{k=1}^{n}\textrm{sub}_{k}(s) = 35.)
+
+
+ k  \textrm{sub}_{k}(s)  m(a, k, n) 
+ 1  3  4 
+ 2  5  8 
+ 3  6  7 
+ 4  6  6 
+ 5  5  5 
+ 6  4  4 
+ 7  3  3 
+ 8  2  2 
+ 9  1  1 
+ Total  35  40 
+
+
+Given: A DNA string s of length at most 100 kbp.
+Return: The linguistic complexity \textrm{lc}(s).
+Sample Dataset
+ATTTGGATT
+
+Sample Output
+0.875

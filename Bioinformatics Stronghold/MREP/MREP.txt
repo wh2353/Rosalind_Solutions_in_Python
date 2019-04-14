@@ -1,0 +1,41 @@
+
+Spies in the War Against Phages
+Figure 1. A genomic region containing a CRISPR. Red substrings correspond to CRISPR repeats, and blue substrings correspond to unique spacers. Repeats are highly palindromic and fold into a hairpin loop when transcribed.
+
+In “Locating Restriction Sites”, we saw how one weapon used by bacteria in their age-old fight
+with phages is the use of restriction enzymes.  Another defense mechanism found
+in the genomes of most bacteria and archaea centers on intervals of DNA called
+CRISPRs (Clustered Regularly Interspaced Short Palindromic Repeats), which allow the cell to distinguish
+its own DNA from that of phages or plasmids.
+Specifically, a CRISPR is an interval of DNA consisting of identical repeats (approximately 23 to 47 bp long),
+alternating with unique intervals (approximately 21 to 72 bp long) called spacers;
+see Figure 1.
+Spacers correspond to fragments of foreign DNA that were integrated into the genome
+between repeats and serve as a memory bank for genetic material captured from invading phages.
+As a result, spacers can be used to recognize and silence invasive elements.
+Specifically, CRISPRs are transcribed into
+RNA molecules, each consisting of a spacer flanked by partial repeats.
+The small CRISPR RNAs, together with associated proteins translated
+from this RNA, target foreign DNA that matches the CRISPR spacer.  In eukaryotes, a similar process is achieved by a process called RNA interference (RNAi).
+To locate a CRISPR in a genome, we need to search for its repeats.  We have already located
+long repeats in “Finding the Longest Multiple Repeat”, but the case here is different because of the repeats appearing in CRISPRS are relatively short.
+Instead, we are looking for repeated intervals that cannot be lengthened in either direction (otherwise, we would
+intersect with a spacer).
+
+Problem
+A maximal repeat of a string s is a repeated substring t of s having
+two occurrences t_1 and t_2 such that t_1 and t_2 cannot be extended
+by one symbol in either direction in s and still agree.
+For example, "AG" is a maximal repeat in "TAGTTAGCGAGA"
+because even though the first two occurrences of "AG" can be extended left into "TAG", the
+first and third occurrences differ on both sides of the repeat; thus, we conclude that "AG" is a maximal repeat.
+Note that "TAG" is also a maximal repeat of "TAGTTAGCGAGA", since its only two
+occurrences do not still match if we extend them in either direction.
+Given: A DNA string s of length at most 1 kbp.
+Return: A list containing all maximal repeats of s having length at least 20.
+Sample Dataset
+TAGAGATAGAATGGGTCCAGAGTTTTGTAATTTCCATGGGTCCAGAGTTTTGTAATTTATTATATAGAGATAGAATGGGTCCAGAGTTTTGTAATTTCCATGGGTCCAGAGTTTTGTAATTTAT
+
+Sample Output
+TAGAGATAGAATGGGTCCAGAGTTTTGTAATTTCCATGGGTCCAGAGTTTTGTAATTTAT
+ATGGGTCCAGAGTTTTGTAATTT

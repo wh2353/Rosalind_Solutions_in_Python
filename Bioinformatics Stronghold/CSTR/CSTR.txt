@@ -1,0 +1,28 @@
+
+Phylogeny from Genetic Characters
+In “Creating a Character Table”, we introduced the character table as a way of representing a number
+of characters simultaneously.  In that problem, we found a character table representing
+an unrooted binary tree on a collection of taxa.
+Of course, in practice, the problem operates in reverse.  We first need to generate a character table
+before we can model a phylogeny on this table.  In modern genetics, a reliable way to
+obtain a large number of characters is by using SNPs. As mentioned in “Counting Subsets”, for a given SNP, we can
+divide taxa into two sets depending on which of two bases is present at the nucleotide,
+thus defining the split of a character.
+
+Problem
+A collection of strings is characterizable if there are at most two possible choices for the symbol
+at each position of the strings.
+Given: A collection of at most 100 characterizable DNA strings, each of length at most 300 bp.
+Return: A character table for which each nontrivial character encodes the symbol choice at
+a single position of the strings.  (Note: the choice of assigning '1' and '0'
+to the two states of each SNP in the strings is arbitrary.)
+Sample Dataset
+ATGCTACC
+CGTTTACC
+ATTCGACC
+AGTCTCCC
+CGTCTATC
+
+Sample Output
+10110
+10100

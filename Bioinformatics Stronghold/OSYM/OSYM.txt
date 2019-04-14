@@ -1,0 +1,27 @@
+
+How Much Does it Cost to Align Two Symbols?
+As we saw in “Counting Optimal Alignments”, there will usually be a huge number of different optimal alignments
+of two given strings.  In this problem, which represents a first attempt to understand
+how much optimal alignments can differ,
+we will select two symbols at a time from the two strings and ask how much the maximum alignment score
+can differ from the optimal score if we demand that these two symbols must be aligned (i.e., implying
+that one symbol must be substituted for the other).
+
+Problem
+Say that we have two strings s and t of respective lengths m and n and an alignment score.
+Let's define a matrix \mathrm{M} corresponding to s and t by setting
+\mathrm{M}_{j, k} equal to the maximum score of any alignment that aligns s[j] with t[k].
+So each entry in \mathrm{M} can be equal to at most the maximum score of any alignment of s and t.
+Given: Two DNA strings s and t in FASTA format, each having length at most 1000 bp.
+Return: The maximum alignment score of a global alignment of s and t, followed by
+the sum of all elements of the matrix \mathrm{M} corresponding to s and t that was defined above.  Apply the mismatch score
+introduced in “Finding a Motif with Modifications”.
+Sample Dataset
+>Rosalind_35
+ATAGATA
+>Rosalind_5
+ACAGGTA
+
+Sample Output
+3
+-139

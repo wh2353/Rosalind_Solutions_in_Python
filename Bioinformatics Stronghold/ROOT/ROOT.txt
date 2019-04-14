@@ -1,0 +1,26 @@
+
+From Unrooted to Rooted Trees
+Recall that a rooted binary tree is a binary tree for which the root is the
+only node of degree 2. Such a tree differs from an unrooted binary tree only in the
+existence of the root.
+Different phylogenetic methods may be better suited to rooted or unrooted trees.  If
+a method produces an unrooted tree, then the root (i.e., the common ancestor of all taxa)
+could theoretically be placed anywhere.  Thus, there will be more rooted binary trees than
+unrooted binary trees on the same number of taxa.  The question is: how many more rooted trees
+are there?
+
+Problem
+As in the case of unrooted trees, say that we have a fixed collection of n taxa
+labeling the leaves of a rooted binary tree T.  You may like to verify that (by extension of “Counting Phylogenetic Ancestors”) such a tree will contain n-1 internal
+nodes and 2n-2 total edges. Any edge will still encode a split of taxa;
+however, the two splits corresponding to the edges incident to the root of T will be equal.
+We still consider two trees to be equivalent if they have the same splits (which
+requires that they must also share the same duplicated split to be equal).
+Let B(n) represent the total number of distinct rooted binary trees on n labeled taxa.
+Given: A positive integer n (n \leq 1000).
+Return: The value of B(n) modulo 1,000,000.
+Sample Dataset
+4
+
+Sample Output
+15

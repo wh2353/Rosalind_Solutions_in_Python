@@ -1,0 +1,37 @@
+
+Creating a Suffix Tree
+In “Finding the Longest Multiple Repeat”, we introduced the suffix tree.  This data structure has a wide array
+of applications, one of which was to help us identify long repeats in a genome.
+In that problem, we provided the tree as part of the dataset, but a
+vital computational exercise is to create the suffix tree solely from a string.
+
+Problem
+Figure 1. The suffix tree for s = GTCCGAAGCTCCGG. Note that the dollar sign has been appended to a substring of the tree to mark the end of s. Every path from the root to a leaf corresponds to a unique suffix of GTCCGAAGCTCCGG, and each leaf is labeled with the location in s of the suffix ending at that leaf.
+
+Given a string s having length n, recall that its suffix tree T(s) is defined by the following properties:
+
+T(s) is a rooted tree having exactly n leaves.
+Every edge of T(s) is labeled with a substring of s^*, where s^* is the string formed by adding a placeholder symbol  to the end of s.
+Every internal node of T(s) other than the root has at least two children; i.e., it has degree at least 3.
+The substring labels for the edges leading down from a node to its children must begin with different symbols.
+By concatenating the substrings along edges, each path from the root to a leaf corresponds to a unique suffix of s^*.
+
+Figure 1
+contains an example of a suffix tree.
+Given: A DNA string s of length at most 1kbp.
+Return: The substrings of s^* encoding the edges of the suffix tree for s.  You may list these substrings in any order.
+Sample Dataset
+ATAAATG
+
+Sample Output
+AAATG
+G
+T
+ATG
+TG
+A
+A
+AAATG
+G
+T
+G

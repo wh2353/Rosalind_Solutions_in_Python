@@ -1,0 +1,26 @@
+
+Putting the Puzzle Together
+In practical genome sequencing, even if we assume that reads have been sequenced
+without errors, we have no idea of knowing immediately the particular strand of DNA
+a read has come from.
+Also, our reads may not have the same length.  In 1995, Idury and Waterman proposed a way
+to boost read coverage and achieve uniform read length by
+breaking long reads into overlapping k-mers for some fixed value of k.
+For example, a 100 bp read could be split into 51 overlapping 50-mers.
+
+Problem
+A directed cycle is simply a cycle in a directed graph in which the head of one edge
+is equal to the tail of the next (so that every edge in the cycle is traversed in the same direction).
+For a set of DNA strings S and a positive integer k, let S_k denote the collection
+of all possible k-mers of the strings in S.
+Given: A collection S of (error-free) reads of equal length (not exceeding 50 bp).
+In this dataset, for some positive integer k, the de Bruijn graph B_k on S_{k+1} \cup S_{k+1}^{\textrm{rc}} consists of exactly two directed cycles.
+Return: A cyclic superstring of minimal length containing every read or its reverse complement.
+Sample Dataset
+AATCT
+TGTAA
+GATTA
+ACAGA
+
+Sample Output
+GATTACA

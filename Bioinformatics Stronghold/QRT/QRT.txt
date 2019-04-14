@@ -1,0 +1,42 @@
+
+Incomplete Characters
+The modern revolution in genome sequencing has produced a huge amount of genetic data
+for a wide variety of species.  One ultimate goal of possessing all this information is to be able to construct
+complete phylogenies via direct genome analysis.
+For example, say that we have a gene shared by a number of taxa.  We could create a
+character based on whether species are known to possess the gene or not, and then use a huge
+character table to construct our desired phylogeny.  However, the present bottleneck with such a
+method is that it assumes that we already possess complete genome information for all possible species.
+The race is on to sequence as many species genomes as possible; for instance,
+the Genome 10K Project aims to sequence 10,000 species genomes over the
+next decade.  Yet for the time being, possessing a complete genomic picture of all Earth's species remains a dream.
+As a result of these practical limitations, we need to be able to work with partial characters, which divide taxa into
+three separate groups: those possessing the character, those not possessing the character,
+and those for which we do not yet have conclusive information.  
+
+Problem
+A partial split of a set S of n taxa models a partial character and
+is denoted by A \mid B, where A and B are still the two disjoint subsets of taxa divided
+by the character. Unlike in the case of splits, we do not necessarily require that A \cup B = S;
+(A \cup B)^{\textrm{c}} corresponds to those taxa for which we lack conclusive evidence regarding the character.
+We can assemble a collection of partial characters into a generalized partial character table C
+in which the symbol x is placed in C_{i, j} if we do not have conclusive evidence regarding
+the jth taxon with respect to the ith partial character.
+A quartet is a partial split A \mid B in which both A and B contain precisely two elements.
+For the sake of simplicity, we often will consider quartets instead of partial characters.
+We say that a quartet A \mid B is inferred from a partial split C \mid D if A \subseteq C and B \subseteq D
+(or equivalently A \subseteq D and B \subseteq C).  For example, \{1, 3\} \mid \{2, 4\} 
+and \{3, 5\} \mid \{2, 4\} can be inferred from \{1, 3, 5\} \mid \{2, 4\}.
+Given: A partial character table C.
+Return: The collection of all quartets that can be inferred from the splits corresponding to the underlying characters of C.
+Sample Dataset
+cat dog elephant ostrich mouse rabbit robot
+01xxx00
+x11xx00
+111x00x
+
+Sample Output
+{elephant, dog} {rabbit, robot}
+{cat, dog} {mouse, rabbit}
+{mouse, rabbit} {cat, elephant}
+{dog, elephant} {mouse, rabbit}

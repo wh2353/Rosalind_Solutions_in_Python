@@ -1,0 +1,33 @@
+
+Comparing Multiple Strings Simultaneously
+In “Consensus and Profile”, we generalized the notion of Hamming distance to find an average case
+for a collection of nucleic acids or peptides.  However, this method only worked if the polymers had the same length.
+As we have already noted in “Edit Distance”, homologous strands of DNA have varying lengths because of the effect of mutations
+inserting and deleting intervals of genetic material; as a result, we need to generalize
+the notion of alignment to cover multiple strings.
+
+Problem
+A multiple alignment of a collection of three or more strings is formed by adding gap symbols
+to the strings to produce a collection of augmented strings all having the same length.
+A multiple alignment score is obtained by taking the sum of an alignment score over all possible
+pairs of augmented strings.  The only difference in scoring the alignment of two strings is that
+two gap symbols may be aligned for a given pair (requiring us to specify a score for matched gap symbols).
+Given: A collection of four DNA strings of length at most 10 bp in FASTA format.
+Return: A multiple alignment of the strings having maximum score, where we score matched symbols 0
+(including matched gap symbols) and all mismatched symbols -1 (thus incorporating a linear gap penalty of 1).
+Sample Dataset
+>Rosalind_7
+ATATCCG
+>Rosalind_35
+TCCG
+>Rosalind_23
+ATGTACTG
+>Rosalind_44
+ATGTCTG
+
+Sample Output
+-18
+ATAT-CCG
+-T---CCG
+ATGTACTG
+ATGT-CTG

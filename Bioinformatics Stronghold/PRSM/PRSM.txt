@@ -1,0 +1,39 @@
+
+Searching the Protein Database
+Many proteins have already been identified for a wide variety of organisms.  Accordingly,
+there are a large number of protein databases available, and so the first step after
+creating a mass spectrum for an unidentified protein is to search through these
+databases for a known protein with a highly similar spectrum.  In this manner,
+many similar proteins found in different species have been identified, which aids
+researchers in determining protein function.
+In “Comparing Spectra with the Spectral Convolution”, we introduced the spectral convolution and used it to measure the
+similarity of simplified spectra.  In this problem, we would like to extend this
+idea to find the most similar protein in a database to a spectrum taken from an unknown protein.  Our plan
+is to use the spectral convolution to find the largest possible number of masses that each database protein
+shares with our candidate protein after shifting, and then select the database protein having the largest
+such number of shared masses.
+
+Problem
+The complete spectrum of a weighted string s is the multiset S[s] containing
+the weights of every prefix and suffix of s.
+Given: A positive integer n followed by a collection of n protein strings s_1, s_2, ..., s_n
+and a multiset R of positive numbers (corresponding to the complete spectrum of some unknown protein string).
+Return: The maximum multiplicity of R \ominus S[s_k] taken over all strings s_k,
+followed by the string s_k for which this maximum multiplicity occurs
+(you may output any such value if multiple solutions exist).
+Sample Dataset
+4
+GSDMQS
+VWICN
+IASWMQS
+PVSMGAD
+445.17838
+115.02694
+186.07931
+314.13789
+317.1198
+215.09061
+
+Sample Output
+3
+IASWMQS

@@ -1,0 +1,30 @@
+
+Gaps on the Ends are Free
+We have covered both global and local alignments.  However,
+sometimes we need a hybrid approach that avoids the weaknesses of these two methods.
+One such alternate approach is that of fitting alignments outlined in “Finding a Motif with Modifications”.
+Another tactic is to allow ourselves to trim off gaps appearing on the ends
+of a global alignment for free; this is relevant if one of our strings to be aligned
+happens to contain additional symbols on the ends that are not relevant for the particular
+alignment at hand.
+
+Problem
+A semiglobal alignment of strings s and t is an alignment in which any gaps appearing
+as prefixes or suffixes of s and t do not contribute to the alignment score.
+Semiglobal alignment has sometimes also been called "overlap alignment".  Rosalind defines
+overlap alignment differently (see “Overlap Alignment”).
+Given: Two DNA strings s and t in FASTA format, each having length at most 10 kbp.
+Return: The maximum semiglobal alignment score of s and t, followed by an alignment of s
+and t achieving this maximum score.  Use an alignment score in which matching symbols
+count +1, substitutions count -1, and there is a linear gap penalty of 1.
+If multiple optimal alignments exist, then you may return any one.
+Sample Dataset
+>Rosalind_79
+CAGCACTTGGATTCTCGG
+>Rosalind_98
+CAGCGTGG
+
+Sample Output
+4
+CAGCA-CTTGGATTCTCGG
+---CAGCGTGG--------

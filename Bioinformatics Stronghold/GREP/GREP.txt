@@ -1,0 +1,64 @@
+
+Repeats: A Practical Assembly Difficulty
+Genome assembly is straightforward if we know in advance that the de Bruijn graph
+has exactly one directed cycle (see “Genome Assembly with Perfect Coverage”).
+In practice, a genome contains repeats longer than the length of the k-mers that
+we wish to use to assemble the genome. Such repeats increase the number of cycles
+present in the de Bruijn graph for these k-mers, thus preventing us from
+assembling the genome uniquely.
+For example, consider the circular string (ACCTCCGCC), along with a collection S
+of error-free reads of length 3, exhibiting perfect coverage and taken from the same strand
+of an interval of DNA. The corresponding de Bruijn graph B_2
+(where edges correspond to 3-mers and nodes correspond to 2-mers) has at least two directed cycles:
+one giving the original circular string (ACCTCCGCC), and another corresponding to the misfit (ACCGCCTCC).
+Also, note that these cycles are not simple cycles, as the node corresponding to
+"CC" is visited three times in each cycle.
+To generalize the problem of genome assembly from a de Bruijn graph to the case of genomes
+containing repeats, we therefore must add a constraint: in a cycle corresponding to a valid assembly,
+every 3-mer must appear as many times in the cycle as it does in our collection of reads
+(which correspond to all 3-mers in the original string).
+
+Problem
+Recall that a directed cycle is a cycle in a directed graph in which the head
+of one edge is equal to the tail of the following edge.
+In a de Bruijn graph of k-mers, a circular string s is constructed from a directed cycle
+s_1 \rightarrow s_2 \rightarrow ... \rightarrow s_i \rightarrow s_1
+is given by s_1 + s_2[k] +  ... + s_{i-k}[k]  + s_{i-k+1}[k].
+That is, because the final k-1 symbols of s_1 overlap with the first k-1 symbols of s_2,
+we simply tack on the k-th symbol of s_2 to s, then iterate the process.
+For example, the circular string assembled from the cycle "AC" \rightarrow "CT" \rightarrow "TA" \rightarrow "AC"
+is simply (ACT).  Note that this string only has length three because the 2-mers "wrap around"
+in the string.
+If every k-mer in a collection of reads occurs as an edge in a de Bruijn graph cycle the
+same number of times as it appears in the reads, then we say that the cycle is "complete."
+Given: A list S_{k+1} of error-free DNA (k+1)-mers (k \leq 5) taken from the same strand
+of a circular chromosome (of length \leq 50).
+Return: All circular strings assembled by complete cycles in the de Bruijn graph B_k of S_{k+1}.
+The strings may be given in any order, but each one should begin with the first
+(k+1)-mer provided in the input.
+Sample Dataset
+CAG
+AGT
+GTT
+TTT
+TTG
+TGG
+GGC
+GCG
+CGT
+GTT
+TTC
+TCA
+CAA
+AAT
+ATT
+TTC
+TCA
+
+Sample Output
+CAGTTCAATTTGGCGTT
+CAGTTCAATTGGCGTTT
+CAGTTTCAATTGGCGTT
+CAGTTTGGCGTTCAATT
+CAGTTGGCGTTCAATTT
+CAGTTGGCGTTTCAATT

@@ -1,0 +1,40 @@
+
+Hardy-Weinberg Revisited
+The principle of genetic equilibrium is an idealistic model for population genetics
+that simply cannot hold for all genes in practice.
+For one, evolution has proven too powerful for equilibrium to possibly hold.
+At the same time, evolution works on the scale of
+eons, and at any given moment in time, most populations are essentially stable.
+Yet we could overlook the inevitable effects of simple random chance in disrupting the
+allelic frequency for a given gene, a phenomenon called genetic drift.
+In this problem, we would like to obtain a simple mathematical model of genetic drift,
+and so we will need to make a number of simplifying assumptions.
+First, assume that individuals from different generations do not mate with each other,
+so that generations exist as discrete, non-overlapping quantities.
+Second, rather than selecting pairs of mating organisms, we simply
+randomly select the alleles for the individuals of the next generation
+based on the allelic frequency in the present generation.
+Third, the population size is stable, so that we do not need to take into account the population
+growing or shrinking between generations.
+Taken together, these three assumptions make up the Wright-Fisher model of genetic drift.
+
+Problem
+Consider flipping a weighted coin that gives "heads" with some fixed probability p
+(i.e., p is not necessarily equal to 1/2).
+We generalize the notion of binomial random variable from “Independent Segregation of Chromosomes” to quantify the sum of the weighted coin flips.
+Such a random variable X takes a value of k if a sequence of n independent
+"weighted coin flips" yields k "heads" and n-k "tails."  We write that X \in \mathrm{Bin}(n, p).
+To quantify the Wright-Fisher Model of genetic drift, consider a population of N diploid individuals,
+whose 2N chromosomes possess m copies of the dominant allele.  As in “Counting Disease Carriers”, set p = \frac{m}{2N}.
+Next, recall that the next generation must contain exactly N individuals.
+These individuals' 2N alleles are selected independently: a dominant allele is chosen
+with probability p, and a recessive allele is chosen with probability 1-p.
+Given: Positive integers N (N \leq 7), m (m \leq 2N), g (g \leq 6) and k (k \leq 2N).
+Return: The probability that in a population of N diploid individuals initially possessing m copies
+of a dominant allele, we will observe after g generations at least k copies of a recessive allele.
+Assume the Wright-Fisher model.
+Sample Dataset
+4 6 2 1
+
+Sample Output
+0.772

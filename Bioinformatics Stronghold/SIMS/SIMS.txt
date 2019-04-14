@@ -1,0 +1,46 @@
+
+Finding Mutated Motifs
+We have discussed at length the importance of motif finding in biology for genetic strings.
+However, searching for exact substring matches is of little use in applications
+because a motif can vary under the effect of mutation.
+Fortunately, we already possess functions like edit distance for quantifying
+the similarity of two strings.
+Furthermore, recall that each chromosome is made up of a large number of genes
+(on average, each human chromosome contains over 1,000 genes).
+Therefore, to determine whether a newly sequenced chromosome
+contains a given gene, neither local nor global alignment
+applies.
+One possible alignment variant for finding genes is semiglobal alignment, which we discuss in “Semiglobal Alignment”;
+yet semiglobal alignment only allows us to disregard gaps at the end of the alignment.
+To find a known gene in a new chromosome, we need to instead align the gene
+against intervals of the chromosome, a problem that calls for an entirely new algorithmic
+variation of alignment.
+
+Problem
+Figure 1. Global, local, and fitting alignments of strings v = GTAGGCTTAAGGTTA and w = TAGATA with respect to mismatch score. Note that in the fitting alignment, a substring of v must be aligned against all of w. Taken from Jones & Pevzner, An Introduction to Bioinformatics Algorithms
+
+Given a string s and a motif t, an alignment of a substring of s against all of t
+is called a fitting alignment.  Our aim is to find a substring s' of s that maximizes
+an alignment score with respect to t.
+Note that more than one such substring of s may exist, depending on the particular strings
+and alignment score used.  One candidate for scoring function is the one derived from edit distance;
+In this problem, we will consider a slightly different alignment score, in which all matched
+symbols count as +1 and all mismatched symbols (including insertions and deletions) receive a cost of -1.
+Let's call this scoring function the mismatch score.
+See Figure 1
+for a comparison of global, local, and fitting alignments with respect to mismatch score.
+Given: Two DNA strings s and t, where s has length at most 10 kbp and t
+represents a motif of length at most 1 kbp.
+Return: An optimal fitting alignment score with respect to the mismatch score defined above,
+followed by an optimal fitting alignment of a substring of s against t.
+If multiple such alignments exist, then you may output any one.
+Sample Dataset
+>Rosalind_54
+GCAAACCATAAGCCCTACGTGCCGCCTGTTTAAACTCGCGAACTGAATCTTCTGCTTCACGGTGAAAGTACCACAATGGTATCACACCCCAAGGAAAC
+>Rosalind_46
+GCCGTCAGGCTGGTGTCCG
+
+Sample Output
+5
+ACCATAAGCCCTACGTG-CCG
+GCCGTCAGGC-TG-GTGTCCG

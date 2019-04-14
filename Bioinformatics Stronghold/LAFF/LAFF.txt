@@ -1,0 +1,27 @@
+
+Building Upon Local Alignments
+We have thus far worked with local alignments with a linear gap penalty and
+global alignments with affine gap penalties (see “Local Alignment with Scoring Matrix” and “Global Alignment with Scoring Matrix and Affine Gap Penalty”).
+It is only natural to take the intersection of these two problems
+and find an optimal local alignment given an affine gap penalty.
+
+Problem
+Given: Two protein strings s and t in FASTA format (each having length at most 10,000 aa).
+Return: The maximum local alignment score of s and t, followed by substrings r and u of s and t, respectively,
+that correspond to the optimal local alignment of s and t. Use:
+
+The BLOSUM62 scoring matrix.
+Gap opening penalty equal to 11.
+Gap extension penalty equal to 1.
+
+If multiple solutions exist, then you may output any one.
+Sample Dataset
+>Rosalind_8
+PLEASANTLY
+>Rosalind_18
+MEANLY
+
+Sample Output
+12
+LEAS
+MEAN

@@ -1,0 +1,35 @@
+
+Overlapping Reads with Errors
+As also mentioned in “Error Correction in Reads”, the sequencing machines that identify
+reads can make errors.  However, the problem that we considered in “Genome Assembly as Shortest Superstring” assumed
+that all reads are error-free.
+Thus, rather than trying to overlap reads exactly, we will instead do so approximately.
+The key to do this is to move toward methods that incorporate alignments.  Yet neither
+global nor local alignment is appropriate for this task.
+Global alignment will attempt to align the entire reads, when we know that only the overlapping
+parts of the reads are relevant.  For that matter, we may identify an optimal local alignment
+that does not correspond to an overlap.
+As a result, we need a specific type of local alignment that aligns only the overlapping
+parts of two strings.
+
+Problem
+An overlap alignment between two strings s and t is a local alignment
+of a suffix of s with a prefix of t.  An optimal overlap alignment will therefore
+maximize an alignment score over all such substrings of s and t.
+The term "overlap alignment" has also been used to describe what Rosalind defines as a
+semiglobal alignment.  See “Semiglobal Alignment” for details.
+Given: Two DNA strings s and t in FASTA format, each having length at most 10 kbp.
+Return: The score of an optimal overlap alignment of s and t, followed by an alignment
+of a suffix s' of s and a prefix t' of t achieving this optimal score.
+Use an alignment score in which matching symbols count +1, substitutions count -2, and
+there is a linear gap penalty of 2.  If multiple optimal alignments exist, then you may return any one.
+Sample Dataset
+>Rosalind_54
+CTAAGGGATTCCGGTAATTAGACAG
+>Rosalind_45
+ATAGACCATATGTCAGTGACTGTGTAA
+
+Sample Output
+1
+ATTAGAC-AG
+AT-AGACCAT

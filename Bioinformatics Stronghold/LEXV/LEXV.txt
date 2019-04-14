@@ -1,0 +1,64 @@
+
+Organizing Strings of Different Lengths
+In “Enumerating k-mers Lexicographically”, we introduced the lexicographic order for strings of the same
+length constructed from some ordered underlying alphabet.
+However, our experience with dictionaries suggests that we
+should be able to order strings of different lengths just as easily.  That is, we already have
+an intuitive sense that "APPLE" comes before "APPLET", which comes before "ARTS," and so we
+should be able to apply this intuition toward cataloguing genetic strings of varying lengths.
+
+Problem
+Say that we have strings s = s_1 s_2 \cdots s_m and t = t_1 t_2 \cdots t_n with m < n.
+Consider the substring t' = t[1:m]. We have two cases:
+
+If s = t', then we set s <_{\textrm{Lex}} t because s is shorter than t (e.g., \textrm{APPLE} < \textrm{APPLET}).
+Otherwise, s \neq t'. We define s <_{\textrm{Lex}} t if s <_{\textrm{Lex}} t'
+and define s >_{\textrm{Lex}} t if s >_{\textrm{Lex}} t' (e.g., \textrm{APPLET} <_{\textrm{Lex}} \textrm{ARTS} because \textrm{APPL} <_{\textrm{Lex}} \textrm{ARTS}).
+
+Given: A permutation of at most 12 symbols defining an ordered alphabet \mathscr{A} and a positive integer n (n \leq 4).
+Return: All strings of length at most n formed from \mathscr{A}, ordered lexicographically.
+(Note: As in “Enumerating k-mers Lexicographically”, alphabet order is based on the order in which the symbols are given.)
+Sample Dataset
+D N A
+3
+
+Sample Output
+D
+DD
+DDD
+DDN
+DDA
+DN
+DND
+DNN
+DNA
+DA
+DAD
+DAN
+DAA
+N
+ND
+NDD
+NDN
+NDA
+NN
+NND
+NNN
+NNA
+NA
+NAD
+NAN
+NAA
+A
+AD
+ADD
+ADN
+ADA
+AN
+AND
+ANN
+ANA
+AA
+AAD
+AAN
+AAA

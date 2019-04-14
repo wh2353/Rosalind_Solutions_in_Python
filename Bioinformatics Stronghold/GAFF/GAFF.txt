@@ -1,0 +1,48 @@
+
+Mind the Gap
+In “Global Alignment with Scoring Matrix”, we considered a linear gap penalty, in which each inserted/deleted
+symbol contributes the exact same amount to the calculation of alignment score.
+However, as we mentioned in “Global Alignment with Constant Gap Penalty”, a single large insertion/deletion (due to a
+rearrangement is then punished very strictly, and so we proposed a constant gap
+penalty.
+Yet large insertions occur far more rarely than small insertions and deletions.
+As a result, a more practical method of penalizing gaps is to use a hybrid of these
+two types of penalties in which we charge one constant penalty for beginning a gap and
+another constant penalty for every additional symbol added or deleted.
+
+Problem
+An affine gap penalty is written as a + b \cdot (L-1), where L is the length of the gap,
+a is a positive constant called the gap opening penalty, and b is
+a positive constant called the gap extension penalty.
+We can view the gap opening penalty as charging for the first gap symbol, and
+the gap extension penalty as charging for each subsequent symbol added to the gap.
+For example, if a = 11 and b = 1,
+then a gap of length 1 would be penalized by 11 (for an average cost of 11 per gap symbol), whereas a gap of length 100
+would have a score of 110 (for an average cost of 1.10 per gap symbol).
+Consider the strings "PRTEINS" and "PRTWPSEIN".  If we use the BLOSUM62 scoring matrix
+and an affine gap penalty with a = 11 and b = 1,
+then we obtain the following optimal alignment.
+ PRT---EINS
+ |||   |||
+ PRTWPSEIN-
+
+Matched symbols contribute a total of 32 to the calculation of the alignment's score, and the
+gaps cost 13 and 11 respectively, yielding a total score of 8.
+Given: Two protein strings s and t in FASTA format (each of length at most 100 aa).
+Return: The maximum alignment score between s and t, followed by two augmented strings s' and t'
+representing an optimal alignment of s and t.  Use:
+
+The BLOSUM62 scoring matrix.
+Gap opening penalty equal to 11.
+Gap extension penalty equal to 1.
+
+Sample Dataset
+>Rosalind_49
+PRTEINS
+>Rosalind_47
+PRTWPSEIN
+
+Sample Output
+8
+PRT---EINS
+PRTWPSEIN-

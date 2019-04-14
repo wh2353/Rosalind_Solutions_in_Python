@@ -1,0 +1,23 @@
+
+Adjusting Alignment Parameters
+As we change the parameters contributing to alignment score, the nature of alignments
+achieving the maximum score may change.  One feature of maximum-score alignments worthy
+of consideration is the number and size of their gaps.  In this problem,
+we would like to determine the maximum number of possible gaps in any optimal alignment
+based solely on the parameter values chosen.
+
+Problem
+For the computation of an alignment score generalizing the edit alignment score,
+let m denote the score assigned to matched symbols, d denote the score assigned to mismatched non-gap symbols,
+and g denote the score assigned a symbol matched to a gap symbol '-' (i.e., g is a linear gap penalty).
+Given: Two DNA strings s and t in FASTA format (each of length at most 5000 bp).
+Return: The maximum number of gap symbols that can appear in any maximum score alignment of s and t with
+score parameters satisfying m > 0, d < 0, and g < 0.
+Sample Dataset
+>Rosalind_92
+AACGTA
+>Rosalind_47
+ACACCTA
+
+Sample Output
+3

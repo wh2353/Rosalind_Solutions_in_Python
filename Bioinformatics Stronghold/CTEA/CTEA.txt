@@ -1,0 +1,33 @@
+
+Beware of Alignment Inference
+In “Edit Distance Alignment”, we introduced the concept of an alignment of two genetic strings
+having differing lengths with respect to edit distance.
+This provided us with a way of visualizing a specific collection of
+symbol substitutions, insertions, and deletions that could have taken place on the
+evolutionary path between the two strings.
+However, simply finding one optimal alignment and declaring that it represents a true
+evolutionary history is a dangerous idea because the actual evolutionary picture may be
+suboptimal.  For that matter, the collection of all optimal alignments may be huge,
+and the characteristics of these alignments could differ widely.
+In order to begin analyzing the collection of optimal alignments for a pair of strings,
+the first question we will ask is simple: just how many optimal alignments exist?
+
+Problem
+Recall from “Edit Distance Alignment” that if s' and t' are the augmented strings corresponding
+to an alignment of strings s and t, then the edit alignment score of s' and t'
+was given by the Hamming distance d_{\textrm{H}}(s', t') (because s' and t' have
+the same length and already include gap symbols to denote insertions/deletions).
+As a result, we obtain d_{\textrm{E}}(s, t) = \min_{s', t'}{d_{\textrm{H}}(s', t')}, where the minimum
+is taken over all alignments of s and t.  Strings s' and t' achieving this minimum
+correspond to an optimal alignment with respect to edit alignment score.
+Given: Two protein strings s and t in FASTA format, each of length at most 1000 aa.
+Return: The total number of optimal alignments of s and t with respect to edit
+alignment score, modulo 134,217,727 (227-1).
+Sample Dataset
+>Rosalind_78
+PLEASANTLY
+>Rosalind_33
+MEANLY
+
+Sample Output
+4

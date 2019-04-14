@@ -1,0 +1,66 @@
+
+Mendel's Work Examined
+Mendel's laws of heredity were initially ignored, as
+only 11 papers have been found that cite his paper between its publication
+in 1865 and 1900.  One reason for Mendel's lack of popularity is that information
+did not move quite so readily as in the modern age; perhaps another reason is that
+as a friar in an Austrian abbey, Mendel was already isolated from Europe's university community.
+It is fair to say that no one who did initially read Mendel's work fully believed
+that traits for more complex organisms, like humans,
+could be broken down into discrete units of heredity (i.e., Mendel's factors).
+This skepticism was well-founded in empirical studies of inheritance,
+which indicated a far more complex picture of heredity than Mendel's theory dictated.
+The friar himself admitted that representing every trait with a single factor was overly
+simplistic, and so he proposed that some traits are polymorphic,
+or encoded by multiple different factors.
+Yet any hereditary model would ultimately be lacking without an understanding of how
+traits are physically passed from organisms to their offspring.
+This physical mechanism was facilitated by Walther Flemming's
+1879 discovery of chromosomes in salamander eggs during cell division,
+followed by Theodor Boveri's observation that sea urchin embryos
+with chromatin removed failed to develop correctly (implying that
+traits must somehow be encoded on chromosomes).  By the turn of the 20th century,
+Mendel's work had been rediscovered by Hugo de Vries and Carl Correns,
+but it was still unclear how Mendel's hereditary model could be tied to chromosomes.
+Fortunately, Walter Sutton demonstrated that grasshopper chromosomes occur in matched pairs
+called homologous chromosomes, or homologs.
+We now know that the DNA found on homologous chromosomes is identical
+except for minor variations attributable to SNPs and
+small rearrangements, which are typically insertions and deletions.
+Sutton himself, working five decades before Watson & Crick and possessing no
+real understanding of DNA, actually surmised
+that variations to homologous chromosomes should somehow correspond to Mendel's alleles.
+Yet it still remained to show how chromosomes themselves are inherited.
+Most multicellular organisms are diploid, meaning that their cells
+possess two sets of chromosomes;
+humans are included among diploid organisms, having 23 homologous chromosome pairs.
+Gametes (i.e., sex cells) in diploid organisms form an exception and are haploid,
+meaning that they only possess one chromosome from each pair of homologs.
+During the fusion of two gametes of opposite sex, a diploid embryo
+is formed by simply uniting the two gametes' halved chromosome sets.
+Mendel's first law can now be explained by the fact that
+during the meiosis each gamete randomly selects one of the two
+available alleles of the particular gene.
+Mendel's second law follows from the fact that gametes select
+nonhomologous chromosomes independently of each other; however, this law will
+hold only for factors encoded on nonhomologous chromosomes, which leaves open the
+inheritance of factors encoded on homologous chromosomes.
+
+Problem
+Consider a collection of coin flips.  One of the most natural questions we can ask is if we flip a coin 92 times,
+what is the probability of obtaining 51 "heads", vs. 27 "heads", vs. 92 "heads"?
+Each coin flip can be modeled by a uniform random variable in which each of the two outcomes ("heads" and "tails")
+has probability equal to 1/2.  We may assume that these random variables are independent (see “Independent Alleles”);
+in layman's terms, the outcomes of the two coin flips do not influence each other.
+A binomial random variable X takes a value of k if
+n consecutive "coin flips" result in k total "heads" and n-k total "tails."
+We write that X \in \mathrm{Bin}(n, 1/2).
+Given: A positive integer n \leq 50.
+Return: An array A of length 2n in which A[k] represents the common logarithm
+of the probability that two diploid siblings share at least k of their 2n chromosomes (we do not consider
+recombination for now).
+Sample Dataset
+5
+
+Sample Output
+0.000 -0.004 -0.024 -0.082 -0.206 -0.424 -0.765 -1.262 -1.969 -3.010

@@ -1,0 +1,46 @@
+
+Pitfalls of Character-Based Phylogeny
+In “Character-Based Phylogeny”, we asked for the construction of an unrooted binary tree from a consistent character table.
+However, the assumption of consistency is often inaccurate, as many character collections
+derived from real data are inconsistent, owing to the fact that the reinforcement of
+mutations by evolution can cause species to lose features over time, evolve to produce the
+same character on different evolutionary paths, or revert to a past character.
+This issue arises even when using genetic characters taken from SNPs, as point mutations can be undone.
+As an example of why using characters can lead us astray, let's return to our first example of a character introduced in “Character-Based Phylogeny”.
+There, we learned that dinosaurs may be divided into the two Orders Saurischia and Ornithischia depending on hip-bone
+shape: the former have "lizard hips," whereas the latter have "bird hips."  Adding to this
+information the fact that birds are widely believed to descend from dinosaurs, we would
+guess that birds derive from ornithischians.  Yet this is not the case: birds derive from theropods,
+a suborder of the saurischians!  The shared hip bone shape with ornithischians is either simply
+coincidence or caused by the "convergence" of bird hip shape with that of ornithischians
+along their different evolutionary paths.
+Another example of a character that would be ill-suited for phylogenetic analysis
+is the presence or absence of wings in insects.  Many wingless modern species
+have evolved from wildly differing ancestors that lost their wings independently of each other.
+If we divided a collection of taxa based on either of these characters,
+many different taxa would be lumped together when they do not in fact share a recent
+common ancestor, which could have disastrous consequences when trying to assign characters
+to the splits of a phylogeny.
+The moral is that we must select our characters carefully, although the Catch-22 is that
+we don't know in advance which characters are the most appropriate to use until we
+actually start constructing phylogenies.  At the same time, if we err on the side of caution, then using
+too few characters might not provide us with enough splits to generate an unrooted binary tree, thus inducing
+an enormous number of possible phylogenies (recall “Counting Unrooted Binary Trees” and how quickly the total number of trees grows with the number of taxa).
+
+Problem
+A submatrix of a matrix M is a matrix formed by selecting rows and columns from M and
+taking only those entries found at the intersections of the selected rows and columns.  We may
+also think of a submatrix as formed by deleting the remaining rows and columns from M.
+Given: An inconsistent character table C on at most 100 taxa.
+Return: A submatrix of C' representing a consistent character table on the same taxa
+and formed by deleting a single row of C. (If multiple solutions exist, you may return any one.)
+Sample Dataset
+100001
+000110
+111000
+100111
+
+Sample Output
+000110
+100001
+100111

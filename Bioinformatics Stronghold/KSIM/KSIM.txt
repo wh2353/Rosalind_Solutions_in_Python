@@ -1,0 +1,28 @@
+
+The Case of Mutated Repeats
+In “Finding a Motif with Modifications”, we considered a problem in which we were given a motif and a long string
+(perhaps representing a genome), and we aimed to find the "closest" substring
+of the long string to the motif.  In that problem, "closest" was defined as a minimum with respect
+to edit distance.
+Yet there may be multiple substring candidates from the genome
+that achieve the minimum distance to the motif; this situation might
+occur in practice when the motif forms a repeat that occurs multiple times
+with variations deriving from mutations.
+In this problem, we would like to find all substrings of a genome that are within a
+certain fixed distance of the desired motif.
+
+Problem
+Given: A positive integer k (k \leq 50), a DNA string s of length at most 5 kbp
+representing a motif, and a DNA string t of length at most 50 kbp representing a genome.
+Return: All substrings t' of t such that the edit distance d_{\mathrm{E}}(s, t') is
+less than or equal to k.  Each substring should be encoded by a pair containing its location
+in t followed by its length.
+Sample Dataset
+2
+ACGTAG
+ACGGATCGGCATCGT
+
+Sample Output
+1 4
+1 5
+1 6

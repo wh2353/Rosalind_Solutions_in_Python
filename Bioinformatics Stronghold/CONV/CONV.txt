@@ -1,0 +1,40 @@
+
+Comparing Spectra
+Suppose you have two mass spectra, and you want to check if they both were obtained from the
+same protein; you will need some notion of spectra similarity.
+The simplest possible metric would be to count the number of peaks in the mass spectrum that
+the spectra share, called the shared peaks count; its analogue for simplified spectra
+is the number of masses that the two spectra have in common.
+The shared peaks count can be useful in the simplest cases,
+but it does not help us if, for example, one spectrum corresponds to a peptide contained
+inside of another peptide from which the second spectrum was obtained.
+In this case, the two spectra are very similar, but the shared peaks count will be very small.
+However, if we shift one spectrum to the right or left, then shared peaks will align.
+In the case of simplified spectra, this means that there is some shift value x such that adding
+x to the weight of every element in one spectrum should create a large number of matches
+in the other spectrum.
+
+Problem
+A multiset is a generalization of the notion of set to include a collection of objects in which each object may occur
+more than once (the order in which objects are given is still unimportant).  For a multiset
+S, the multiplicity of an element x is the number of times that x occurs in the set;
+this multiplicity is denoted S(x). Note that every set is included in the definition of multiset.
+The Minkowski sum of multisets S_1 and S_2 containing real numbers is the new multiset S_1 \oplus S_2 formed
+by taking all possible sums s_1 + s_2 of an element s_1 from S_1 and an element s_2 from S_2.
+The Minkowski sum could be defined more concisely as S_1 \oplus S_2 = {s_1 + s_2 : s_1 \in S_1, s_2 \in S_2},
+The Minkowski difference S_1 \ominus S_2 is defined analogously by taking all possible
+differences s_1 - s_2.
+If S_1 and S_2 represent simplified spectra taken from two peptides, then S_1 \ominus S_2 is called
+the spectral convolution of S_1 and S_2.  In this notation, the shared peaks count
+is represented by (S_2 \ominus S_1)(0), and the value of x for which (S_2 \ominus S_1)(x) has the maximal value
+is the shift value maximizing the number of shared masses of S_1 and S_2.
+Given: Two multisets of positive real numbers S_1 and S_2. The size of each multiset is at most 200.
+Return: The largest multiplicity of S_1 \ominus S_2, as well as the absolute value of the number x maximizing
+(S_1 \ominus S_2)(x) (you may return any such value if multiple solutions exist).
+Sample Dataset
+186.07931 287.12699 548.20532 580.18077 681.22845 706.27446 782.27613 968.35544 968.35544
+101.04768 158.06914 202.09536 318.09979 419.14747 463.17369
+
+Sample Output
+3
+85.03163

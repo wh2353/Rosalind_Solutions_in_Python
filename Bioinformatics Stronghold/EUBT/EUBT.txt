@@ -1,0 +1,26 @@
+
+Seeing the Forest
+In “Counting Unrooted Binary Trees”, we found a way to count the number of unrooted binary trees representing
+phylogenies on n taxa.  Our observation was that two such trees are considered distinct
+when they do not share the same collection of splits.
+Counting all these trees is one task, but actually understanding
+how to write them out in a list (i.e., enumerating them) is another, which
+will be the focus of this problem.
+
+Problem
+Figure 1. This unrooted binary tree may be represented in Newick format by (((a,b),c),(d,e)); another way of encoding it is ((a,b),(c,(d,e))).
+
+Recall the definition of Newick format from “Distances in Trees” as a way of encoding trees.
+See Figure 1
+for an example of Newick format applied to an unrooted binary tree whose five leaves are labeled
+(note that the same tree can have multiple Newick representations).
+Given: A collection of species names representing n taxa.
+Return: A list containing all unrooted binary trees whose leaves are these n taxa.
+Trees should be given in Newick format, with one tree on each line; the order of the trees is unimportant.
+Sample Dataset
+dog cat mouse elephant
+
+Sample Output
+(((mouse,cat),elephant))dog;
+(((elephant,mouse),cat))dog;
+(((elephant,cat),mouse))dog;

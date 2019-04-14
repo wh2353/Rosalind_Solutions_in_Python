@@ -1,0 +1,26 @@
+
+How Well Assembled Are Our Contigs?
+As we have stated, the goal of genome sequencing is to create contigs that are
+as long as possible.  Thus, after fragment assembly, it is important to
+possess statistics quantifying how well-assembled our contigs are.
+First and foremost, we demand a measure of what percentage of the assembled genome
+is made up of long contigs.  Our first question is then: if we select contigs from our collection,
+how long do the contigs need to be to cover 50% of the genome?
+
+Problem
+Given a collection of DNA strings representing contigs, we use the N
+statistic NXX (where XX ranges from 01 to 99) to represent the maximum positive integer L
+such that the total number of nucleotides of all contigs
+having length \ge L is at least XX% of the sum of contig lengths.  The most commonly used
+such statistic is N50, although N75 is also worth mentioning.
+Given: A collection of at most 1000 DNA strings
+(whose combined length does not exceed 50 kbp).
+Return: N50 and N75 for this collection of strings.
+Sample Dataset
+GATTACA
+TACTACTAC
+ATTGAT
+GAAGA
+
+Sample Output
+7 6

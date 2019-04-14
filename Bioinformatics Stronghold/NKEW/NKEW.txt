@@ -1,0 +1,30 @@
+
+Weighting the Tree
+A vital goal of creating phylogenies is to quantify a molecular clock that indicates
+the amount of evolutionary time separating two members of the phylogeny.  To this end, we will
+assign numbers to the edges of a tree so that the number assigned to an edge represents
+the amount of time separating the two species at each end of the edge.  More generally,
+the evolutionary time between any two species will be given by simply adding the individual
+times connecting the nodes.
+
+Problem
+In a weighted tree, each edge is assigned a (usually positive) number,
+called its weight.  The distance between two nodes in a weighted tree becomes
+the sum of the weights along the unique path connecting the nodes.
+To generalize Newick format to the case of a weighted tree T, during our repeated "key step,"
+if leaves v_1, v_2, \ldots, v_n are neighbors in T,
+and all these leaves are incident to u, then we replace u with (v_1:d_1, v_2:d_2, \ldots, v_n:d_n)u,
+where d_i is now the weight on the edge \{v_i, u\}.
+Given: A collection of n weighted trees (n \leq 40) in Newick format, with each tree containing at most 200 nodes;
+each tree T_k is followed by a pair of nodes x_k and y_k in T_k.
+Return: A collection of n numbers, for which the kth number represents the distance
+between x_k and y_k in T_k.
+Sample Dataset
+(dog:42,cat:33);
+cat dog
+
+((dog:4,cat:3):74,robot:98,elephant:58);
+dog elephant
+
+Sample Output
+75 136

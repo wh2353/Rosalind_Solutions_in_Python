@@ -1,0 +1,40 @@
+
+Generalizing the Alignment Score
+The edit alignment score in “Edit Distance Alignment” counted the total number of edit operations
+implied by an alignment; we could equivalently think of this scoring function
+as assigning a cost of 1 to each such operation. Another common scoring function
+awards matched symbols with 1 and penalizes substituted/inserted/deleted symbols
+equally by assigning each one a score of 0, so that the maximum score of an alignment
+becomes the length of a longest common subsequence of s and t (see “Finding a Shared Spliced Motif”).  In general,
+the alignment score is simply a scoring function that assigns costs to edit operations
+encoded by the alignment.
+One natural way of adding complexity to alignment scoring functions is by changing
+the alignment score based on which symbols are substituted; many methods have been proposed for doing this.
+Another way to do so is to vary the penalty assigned to the insertion or deletion of symbols.
+In general, alignment scores can be either maximized or minimized depending on how scores are
+established.  The general problem of optimizing a particular alignment score is called
+global alignment.
+
+Problem
+To penalize symbol substitutions differently depending on which two symbols are
+involved in the substitution, we obtain a scoring matrix S in which S_{i, j}
+represents the (negative) score assigned to a substitution of the ith symbol of our
+alphabet \mathscr{A} with the jth symbol of \mathscr{A}.
+A gap penalty is the component deducted from alignment score due to the presence of a gap.
+A gap penalty may be a function of the length of the gap; for example, a
+linear gap penalty is a constant g such that each inserted or deleted symbol is charged g;
+as a result, the cost of a gap of length L is equal to gL.
+Given: Two protein strings s and t in FASTA format (each of length at most 1000 aa).
+Return: The maximum alignment score between s and t. Use:
+
+The BLOSUM62 scoring matrix.
+Linear gap penalty equal to 5 (i.e., a cost of -5 is assessed for each gap symbol).
+
+Sample Dataset
+>Rosalind_67
+PLEASANTLY
+>Rosalind_17
+MEANLY
+
+Sample Output
+8

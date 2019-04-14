@@ -1,0 +1,33 @@
+
+Lying in Wait
+Single gene disorders can be encoded by either dominant or
+recessive alleles. In the latter case, the affected person
+usually has two healthy carrier parents, who were usually unaware
+that their child could inherit a deadly or debilitating genetic condition from them.
+We know from Mendel's first law that any offspring of two heterozygous carriers
+has a 25% chance of inheriting a recessive disorder.
+Knowing your own genotype is therefore important when deciding to have children, and
+genetic screening will prove vital for preventive medicine in the coming years.
+In this problem, we will consider an exercise in which we determine the probability
+of an organism exhibiting each possible genotype for a factor knowing only the genotypes
+of the organism's ancestors.
+
+Problem
+Figure 1. The rooted binary tree whose Newick format is (aa,((Aa,AA),AA)). Each leaf encodes the genotype of an ancestor for the given individual, which is represented by '?'.
+
+A rooted binary tree can be used to model the pedigree of an individual.
+In this case, rather than time progressing from the root to the leaves,
+the tree is viewed upside down with time progressing from an individual's ancestors
+(at the leaves) to the individual (at the root).
+An example of a pedigree for a single factor in which only the
+genotypes of ancestors are given is shown in
+Figure 1.
+Given: A rooted binary tree T in Newick format encoding an individual's pedigree
+for a Mendelian factor whose alleles are A (dominant) and a (recessive).
+Return: Three numbers between 0 and 1, corresponding to the respective probabilities that
+the individual at the root of T will exhibit the "AA", "Aa" and "aa" genotypes.
+Sample Dataset
+((((Aa,aa),(Aa,Aa)),((aa,aa),(aa,AA))),Aa);
+
+Sample Output
+0.156 0.5 0.344

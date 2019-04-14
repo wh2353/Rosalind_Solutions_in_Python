@@ -1,0 +1,26 @@
+
+Introduction to Quartet-Based Phylogeny
+In “Quartets”, we introduced partial splits modeling partial characters on
+a collection of taxa.  Our aim is to use the quartets inferred from
+partial splits to construct a phylogeny on the taxa.  This procedure is called
+quartet-based phylogeny.
+We could construct a phylogeny directly from a collection of partial splits, but
+it is not immediately clear how many different splits we would need.
+Hence, our first question is to ask how many quartets are required to
+be able to infer a tree; in this problem we will ask the reverse question of how many
+quartets can be inferred from a known tree.
+
+Problem
+A quartet AB \mid CD is consistent with a binary tree T
+if the quartet can be inferred from one of the splits of T (see “Quartets” for
+a description of inferring quartets from splits).
+Let q(T) denote the total number of quartets that are consistent with T.
+Given: A positive integer n (4 \leq n \leq 5000), followed by an unrooted binary tree T
+in Newick format on n taxa.
+Return: The value of q(T) modulo 1,000,000.
+Sample Dataset
+6
+(lobster,(cat,dog),(caterpillar,(elephant,mouse)));
+
+Sample Output
+15

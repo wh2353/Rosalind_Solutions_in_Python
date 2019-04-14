@@ -1,0 +1,57 @@
+
+Genetic Drift and the Hardy-Weinberg Principle
+Mendel's laws of segregation and independent assortment
+are excellent for the study of individual organisms and their progeny,
+but they say nothing about how alleles move through a population over time.
+Our first question is: when can we assume that the ratio of an allele in a population,
+called the allele frequency, is stable?
+G. H. Hardy and Wilhelm Weinberg independently considered
+this question at the turn of the 20th Century, shortly after Mendel's ideas had been rediscovered.
+They concluded that the percentage of an allele in a population of
+individuals is in genetic equilibrium when five conditions are satisfied:
+
+The population is so large that random changes in the allele frequency are negligible.
+No new mutations are affecting the gene of interest;
+The gene does not influence survival or reproduction, so that natural selection is not occurring;
+Gene flow, or the change in allele frequency due to migration into and out of the population, is negligible.
+Mating occurs randomly with respect to the gene of interest.
+
+The Hardy-Weinberg principle states that if a population is in genetic equilibrium
+for a given allele, then its frequency will remain constant and evenly distributed
+through the population.
+Unless the gene in question is important to survival or reproduction,
+Hardy-Weinberg usually offers a reasonable enough model of population genetics.
+One of the many benefits of the Mendelian theory of inheritance and simplifying models
+like Hardy-Weinberg is that they help us predict the probability with which genetic
+diseases will be inherited, so as to take appropriate preventative measures. 
+Genetic diseases are usually caused by mutations to chromosomes,
+which are passed on to subsequent generations.
+The simplest and most widespread case of a genetic disease is a single gene disorder,
+which is caused by a single mutated gene. Over 4,000 such
+human diseases have been identified, including cystic fibrosis and sickle-cell anemia.
+In both of these cases, the individual must possess two recessive alleles for a gene in order
+to contract the disease. Thus, carriers can live their entire lives without knowing
+that they can pass the disease on to their children.
+The above introduction to genetic equilibrium leaves us with a basic and yet very practical question regarding gene disorders:
+if we know the number of people who have a disease encoded by a recessive allele, can we predict the
+number of carriers in the population?
+
+Problem
+To model the Hardy-Weinberg principle, assume that we have a population of N diploid individuals.
+If an allele is in genetic equilibrium, then because mating is random, we may view
+the 2N chromosomes as receiving their alleles uniformly.
+In other words, if there are m dominant alleles, then the probability of a selected chromosome
+exhibiting the dominant allele is simply p = \frac{m}{2N}.
+Because the first assumption of genetic equilibrium states that the population is so large
+as to be ignored, we will assume that N is infinite, so that we only need to concern ourselves
+with the value of p.
+Given: An array A for which A[k] represents the proportion of homozygous recessive
+individuals for the k-th Mendelian factor in a diploid population.
+Assume that the population is in genetic equilibrium for all factors.
+Return: An array B having the same length as A in which B[k] represents the probability
+that a randomly selected individual carries at least one copy of the recessive allele for the k-th factor.
+Sample Dataset
+0.1 0.25 0.5
+
+Sample Output
+0.532 0.75 0.914

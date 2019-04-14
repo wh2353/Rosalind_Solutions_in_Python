@@ -1,0 +1,24 @@
+
+Counting Trees
+A natural question is to be able to count the total number of distinct unrooted binary trees
+having n leaves, where each leaf is labeled by some taxon.  Before we can count
+all these trees, however, we need to have a notion of when two such trees are the same.
+Our tool will be the split.  Recall from “Creating a Character Table” that removing any edge from
+a tree T separates its leaves into sets S and S^{\textrm{c}}, so that
+each edge of T can be labeled by this split S \mid S^{\textrm{c}}.  As a result,
+an unrooted binary tree can be represented uniquely by its collection of splits.
+
+Problem
+Two unrooted binary trees T_1 and T_2 having the same n labeled leaves
+are considered to be equivalent if there is some assignment of labels to the internal nodes
+of T_1 and T_2 so that the adjacency lists of the two trees coincide.
+As a result, note that T_1 and T_2 must have the same splits; conversely, if the two trees do not
+have the same splits, then they are considered distinct.
+Let b(n) denote the total number of distinct unrooted binary trees having n labeled leaves.
+Given: A positive integer n (n \leq 1000).
+Return: The value of b(n) modulo 1,000,000.
+Sample Dataset
+5
+
+Sample Output
+15
