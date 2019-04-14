@@ -1,0 +1,28 @@
+Problem
+Figure 1. The graphs from the dataset
+
+A bipartite graph is a graph G = (V, E) whose vertices can be partitioned into two sets (V = V_1 \cup V_2
+and V_1 \cap V_2 = \emptyset) such that there are no edges between vertices in the same set (for instance, if
+u, v \in V_1, then there is no edge between u and v).
+There are many other ways to formulate this property. For instance, an undirected graph
+is bipartite if and only if it can be colored with just two colors. Another one: an undirected graph is 
+bipartite if and only if it contains no cycles of odd length.
+Source: Algorithms by Dasgupta, Papadimitriou, Vazirani. McGraw-Hill. 2006.
+Given: A positive integer k \le 20 and k simple graphs in the edge list format with at most 10^3 vertices each.
+Return: For each graph, output "1" if it is bipartite and "-1" otherwise.
+See Figure 1 for visual example from the sample dataset.
+Sample Dataset
+2
+
+3 3
+1 2
+3 2
+3 1
+
+4 3
+1 4
+3 1
+1 2
+
+Sample Output
+-1 1

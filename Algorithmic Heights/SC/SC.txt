@@ -1,0 +1,18 @@
+Problem
+A directed graph is semi-connected if for all pairs of vertices i,j there is either a path from
+i to j or a path from j to i.
+Given: A positive integer k \le 20 and k simple directed graphs with at most 10^3 vertices each in the edge list format.
+Return: For each graph, output "1" if the graph is semi-connected and "-1" otherwise.
+Sample Dataset
+2
+
+3 2
+3 2
+2 1
+
+3 2
+3 2
+1 2
+
+Sample Output
+1 -1

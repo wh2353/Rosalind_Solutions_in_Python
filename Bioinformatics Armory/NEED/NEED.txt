@@ -1,0 +1,65 @@
+
+Comparing Strings Online
+Figure 1. An alignment of two human zinc finger proteins, identified by their GenBank accession numbers on the left. A '*' below aligned symbols denotes identical amino acids, a ':' denotes similar amino acids, a '.' denotes less similar amino acids, and a blank space denotes dissimilar amino acids. Color-coding represents the amino acid's chemical properties (e.g., blue denotes acidic and green denotes basic).
+
+Regions of similarity in two genetic strings
+that are presumed to be homologous can be found by alignment.
+As shown in Figure 1,
+a global alignment of two strings is formed by adding gap symbols ('\textrm{-}') to each string
+to make them the same length, so that every symbol in one string corresponds to a symbol in the other. 
+A gap symbol in an aligned string represents a deletion at that position or
+an insertion in the string it is aligned to. Mismatches can be interpreted as
+point mutations that change symbols at single positions in the strings.
+There are many possible alignments for a pair of strings. In practice, we cannot know which is the 
+absolute "best" alignment of two genetic strings. This is because discriminating between alignments
+requires assumptions about how the strings have evolved, and this information about their evolution
+is precisely what we hope to learn from the alignment. The best we can do is to compare alignments quantitatively by
+using a scoring approach. Many such alignment scores assign 0 to a match, a negative number
+to a mismatch, and an even larger negative number to a gap. Summing all these scores over an alignment gives the
+alignment's score; in keeping with the assumption of parsimony, the optimal alignment
+will have the highest score, implying the fewest possible changes between the strings.
+A scoring matrix contains a score for matches and mismatches between each pair of symbols. These scores are derived empirically based on the frequency
+with which these matches and mismatches occur in highly similar biological sequences for which the true alignment is practically unequivocal.
+A gap penalty is the score deducted for the presence of a gap.  One of the most commonly
+used gap penalties is an affine gap penalty, in which one penalty is assigned for 
+adding the first symbol to a gap and different penalty is charged for every additional symbol in the gap.
+The gap opening penalty is usually larger than the 
+gap extension penalty because a single deletion of k nucleotides is more likely than
+k independent, contiguous, single-nucleotide deletions.
+For example, say that we use a simple scoring matrix that rewards +1 for all matching symbols
+and charges -1 for all mismatches, along with an affine gap penalty that has a gap opening penalty of -5
+and a gap extension penalty of -1. The following alignment has 14 matched symbols, 3 mismatches, and two gaps (one of which is extended by three symbols),
+which gives a total score for the alignment of 14 - 3 - (2 \cdot 5 + 3) = -2.
+
+GARFIELDTHEVERYFA-TCAT
+:::||||||||    || ||||
+WINFIELDTHE----FASTCAT
+If you would like to learn about the algorithmic ideas behind the global alignment algorithms,
+you may be interested in solving
+“Global Alignment with Scoring Matrix” and “Global Alignment with Scoring Matrix and Affine Gap Penalty” in the Bioinformatics Stronghold.
+EBI hosts many different online user interfaces for bioinformatics tools, including Needle and Stretcher.
+Needle and Stretcher are tools from the EMBOSS package that are for aligning genetic strings. 
+Both can be accessed from here
+The programs are very similar. One difference is that Stretcher always uses an end gap penalty, while Needle includes the option but does not use it by default.
+In either of these interfaces, you can enter strings directly or in any supported format: GCG, FASTA, EMBL, GenBank, PIR/NBRF,
+Phylip, or the UniProtKB/Swiss-Prot format. Feel free to play around with these interfaces
+by entering pairs of strings. Notice that clicking on More options... under "Step 2"
+will allow you to change the alignment parameters as well as the output format.
+
+Problem
+An online interface to EMBOSS's Needle tool for aligning DNA and RNA strings can be found here.
+Use:
+
+The DNAfull scoring matrix; note that DNAfull uses IUPAC notation for ambiguous nucleotides.
+Gap opening penalty of 10.
+Gap extension penalty of 1.
+
+For our purposes, the "pair" output format will work fine;
+this format shows the two strings aligned at the bottom of the output file beneath some statistics about the alignment.
+Given: Two GenBank IDs.
+Return: The maximum global alignment score between the DNA strings associated with these IDs. 
+Sample Dataset
+JX205496.1 JX469991.1
+
+Sample Output
+257

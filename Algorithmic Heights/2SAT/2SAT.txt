@@ -1,0 +1,59 @@
+Problem
+In the 2SAT problem, you are given a set of clauses, where each clause is the disjunction (OR) of
+two literals (a literal is a Boolean variable or the negation of a Boolean variable). You are looking
+for a way to assign a value {\tt true} or {\tt false} to each of the variables so that all clauses are 
+satisfied — that is, there is at least one true literal in each clause. For example, here’s an instance of 2SAT:
+(x_1 \lor \overline{x}_2) \land (\overline{x}_1 \lor \overline{x}_3) \land (x_1 \lor x_2) \land (\overline{x}_3 \lor x_4) \land (\overline{x}_1 \lor x_4)\, .
+This instance has a satisfying assignment: set x_1, x_2, x_3, and x_4 to {\tt true}, {\tt false}, {\tt false}, and
+{\tt true}, respectively.
+
+Are there other satisfying truth assignments of this 2SAT formula? If so, find them all.
+Give an instance of 2SAT with four variables, and with no satisfying assignment.
+
+The purpose of this problem is to lead you to a way of solving 2SAT efficiently by reducing it to
+the problem of finding the strongly connected components of a directed graph. Given an instance
+I of 2SAT with n variables and m clauses, construct a directed graph G_I = (V, E) as follows.
+
+G_I has 2n nodes, one for each variable and its negation.
+G_I has 2m edges: for each clause (\alpha \lor \beta) of I (where \alpha, \beta are literals), G_I has an edge from
+the negation of \alpha to \beta, and one from the negation of \beta to \alpha.
+
+Note that the clause (\alpha \lor \beta) is equivalent to either of the implications \overline{\alpha} \Rightarrow \beta or 
+\overline{\beta} \Rightarrow \alpha. In this
+sense, G_I records all implications in I.
+
+Carry out this construction for the instance of 2SAT given above, and for the instance you
+constructed in 2.
+Show that if G_I has a strongly connected component containing both x and \overline{x} for some
+variable x, then I has no satisfying assignment.
+Now show the converse of 4: namely, that if none of G_I’s strongly connected components
+contain both a literal and its negation, then the instance I must be satisfiable. (Hint: 
+Assign values to the variables as follows: repeatedly pick a sink strongly connected component
+of G_I. Assign value {\tt true} to all literals in the sink, assign {\tt false} to their negations, and
+delete all of these. Show that this ends up discovering a satisfying assignment.)
+Conclude that there is a linear-time algorithm for solving 2SAT.
+
+Source: Algorithms by Dasgupta, Papadimitriou, Vazirani. McGraw-Hill. 2006.
+Given: A positive integer k \le 20 and k 2SAT formulas represented as follows. The first line gives the number of variables
+n \le 10^3 and the number of clauses m \le 10^4, each of the following m lines gives a clause of length 2 by specifying 
+two different
+literals: e.g., a clause (x_3 \lor \overline{x}_5) is given by 3 -5.
+Return: For each formula, output 0 if it cannot be satisfied or 1 followed by a satisfying assignment otherwise.
+Sample Dataset
+2
+
+2 4
+1 2
+-1 2
+1 -2
+-1 -2
+
+3 4
+1 2
+2 3
+-1 -2
+-2 -3
+
+Sample Output
+0
+1 1 -2 3

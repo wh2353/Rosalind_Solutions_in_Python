@@ -1,0 +1,22 @@
+Problem
+Comparing the algorithms for sorting and “Median” finding we notice that, beyond the common
+divide-and-conquer philosophy and structure, they are exact opposites. “Merge Sort” splits
+the array in two in the most convenient way (first half, second half), without any regard to
+the magnitudes of the elements in each half; but then it works hard to put the sorted subarrays 
+together. In contrast, the median algorithm is careful about its splitting (smaller
+numbers first, then the larger ones), but its work ends with the recursive call.
+Quick sort is a sorting algorithm that splits the array in exactly the same way as the 
+median algorithm; and once the subarrays are sorted, by two recursive calls, there is nothing
+more to do. Its worst-case performance is \Theta(n^2), like that of median-finding. But it can be
+proved that its average case is O(n \log n); furthermore, empirically it outperforms 
+other sorting algorithms. This has made quicksort a favorite in many applications—
+for instance, it is the basis of the code by which really enormous files are sorted.
+Source: Algorithms by Dasgupta, Papadimitriou, Vazirani. McGraw-Hill. 2006.
+Given: A positive integer n \le 10^5 and an array A[1..n] of integers from -10^5 to 10^5.
+Return: A sorted array A[1..n].
+Sample Dataset
+7
+5 -2 4 7 8 -10 11
+
+Sample Output
+-10 -2 4 5 7 8 11

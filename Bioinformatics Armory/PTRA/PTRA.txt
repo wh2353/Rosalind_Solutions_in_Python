@@ -1,0 +1,37 @@
+
+The Genetic Code
+Figure 1. Schematic image of the translation process.
+
+Given a nucleotide sequence obtained from sequencing or a database, we
+want to know whether this sequence corresponds to a coding region of the genome.
+If so, you need only apply the genetic code to translate your sequence into an amino acid chain.
+The apparent difficulty of translation is that somehow 4 RNA bases must correspond
+to a protein language of 20 amino acids;
+in order for every possible amino acid to be used, we must translate 3-nucleotide codons into amino acids (see Figure 1).
+Note that there are 4^3 = 64 possible codons, so that multiple codons may encode the same amino acid.
+Two special types of codons are the start codon (AUG), which codes for the amino acid methionine
+and always indicates the start of translation, and the three stop codons (UAA, UAG, UGA),
+which do not code for an amino acid and terminate the translation process.
+It is important to note that some organisms and DNA-containing organelles use an alternative
+form of the genetic code. This phenomenon is called
+genetic code variation. For example, vertebrate mitochondria
+treat AGA and AGG as stop codons instead of having these two codons code for arginine. 
+Thus, it is important to check the source of your genome data prior to translation.
+
+Problem
+The 20 commonly occurring amino acids are abbreviated by using 20 letters from the English alphabet
+(all letters except for B, J, O, U, X, and Z). Protein strings are constructed from these 20 symbols.
+The RNA codon table shows the encoding from each RNA codon to the amino acid alphabet.
+The Translate tool from the SMS 2 package can be found here in the SMS 2 package
+A detailed list of genetic code variants (codon tables) along with indexes representing
+these codes (1 = standard genetic code, etc.) can be obtained here.
+For now, when translating DNA and RNA strings, we will start with the first letter
+of the string and ignore stop codons.
+Given: A DNA string s of length at most 10 kbp, and a protein string translated by s.
+Return: The index of the genetic code variant that was used for translation. (If multiple solutions exist, you may return any one.)
+Sample Dataset
+ATGGCCATGGCGCCCAGAACTGAGATCAATAGTACCCGTATTAACGGGTGA
+MAMAPRTEINSTRING
+
+Sample Output
+1

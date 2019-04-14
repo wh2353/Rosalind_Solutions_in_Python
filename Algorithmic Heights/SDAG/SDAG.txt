@@ -1,0 +1,30 @@
+Problem
+There are two subclasses of graphs that automatically exclude the possibility of negative 
+cycles: graphs without negative edges, and graphs without cycles. We already know how to
+efficiently handle the former (see the problem “Negative Weight Cycle”). We will now see how 
+the single-source shortest-path problem can be solved in just linear time on directed acyclic graphs.
+As before, we need to perform a sequence of updates (recall Bellman-Ford algorithm) that includes every shortest path as
+a subsequence. The key source of efficiency is that
+
+In any path of a DAG, the vertices appear in increasing linearized order.
+
+Therefore, it is enough to linearize (that is, topologically sort) the DAG by depth-first search,
+and then visit the vertices in sorted order, updating the edges out of each.
+The algorithm is given below.
+Notice that our scheme doesn’t require edges to be positive. In particular, we can find
+longest paths in a DAG by the same algorithm: just negate all edge lengths.
+Source: Algorithms by Dasgupta, Papadimitriou, Vazirani. McGraw-Hill. 2006.
+Given: A weighted DAG with integer edge weights from -10^{3} to 10^3 and n \le 10^5 vertices in the edge list format.
+Return: An array D[1..n] where D[i] is the length of a shortest path from the vertex 1 to the vertex i
+(D[1]=0). If i is not reachable from 1 set D[i] to x.
+Sample Dataset
+5 6
+2 3 4
+4 3 -2
+1 4 1
+1 5 -3
+2 4 -2
+5 4 1
+
+Sample Output
+0 x -4 -2 -3

@@ -1,0 +1,39 @@
+
+The Second Strand
+Figure 1. Base pairing across the two strands of DNA.
+
+Figure 2. The double helix of DNA on the molecular scale.
+
+Recall Watson and Crick's discovery of the following secondary structure
+for DNA that was introduced in “Counting DNA Nucleotides”:
+
+The DNA molecule is made up of two strands, running in opposite directions.
+Each base bonds to a base in the opposite strand.
+Adenine always bonds with thymine, and cytosine always bonds with guanine;
+the complement of a base is the base to which it always bonds;
+see Figure 1.
+The two strands are twisted together into a long spiral staircase structure called
+a double helix; see Figure 2.
+
+Because genomic DNA is double-stranded, during sequence analysis we should examine
+both the given DNA string and its reverse complement.
+A number of online tools exist for taking the reverse complement of a given DNA string.
+Like the Reverse Complement program listed below, the revseq program from the EMBOSS package also
+performs this function. It can be run online here.
+
+Problem
+Recall that in a DNA string s, 'A' and 'T' are complements of each other, as are 'C' and 'G'.
+Furthermore, the reverse complement of s is the string s^{\textrm{c}}
+formed by reversing the symbols of s and then taking the complement of each symbol
+(e.g., the reverse complement of "GTCA" is "TGAC").
+The Reverse Complement program from the SMS 2 package can be run online here.
+Given: A collection of n (n \leq 10) DNA strings.
+Return: The number of given strings that match their reverse complements.
+Sample Dataset
+>Rosalind_64
+ATAT
+>Rosalind_48
+GCATA
+
+Sample Output
+1

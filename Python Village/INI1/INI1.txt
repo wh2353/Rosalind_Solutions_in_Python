@@ -1,0 +1,29 @@
+
+Why Python?
+Rosalind problems can be solved using any programming language. Our language of choice is Python.
+Why? Because it's simple, powerful, and even funny. You'll see what we mean.
+If you don't already have Python software, please
+download and install the appropriate version for your platform (Windows, Linux or Mac OS X).
+Please install Python of version 2.x (not 3.x) — it has more libraries support and many well-written guides.
+After completing installation, launch IDLE (default Python development environment;
+it's usually installed with Python, however you may need to install it separately on Linux).
+You'll see a window containing three arrows, like so:
+>>>
+
+The three arrows are Python's way of saying that it is ready to serve your every need.
+You are in interactive mode, meaning that any command you type will run immediately. 
+Try typing 1+1 and see what happens.
+Of course, to become a Rosalind pro, you will need to write programs having more than one line.
+So select File → New Window from the IDLE menu.
+You can now type code as you would into a text editor. 
+For example, type the following: 
+print "Hello, World!"
+
+Select File → Save to save your creation with an appropriate name (e.g., hello.py).
+To run your program, select Run → Run Module. You'll see
+the result in the interactive mode window (Python Shell).
+Congratulations! You just ran your first program in Python!
+
+Problem
+After downloading and installing Python, type import this into the Python command line
+and see what happens.  Then, click the "Download dataset" button below and copy the Zen of Python into the space provided.

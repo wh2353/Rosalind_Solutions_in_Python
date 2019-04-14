@@ -1,0 +1,15 @@
+Problem
+Given: A simple directed graph with n \le 10^3 vertices in the edge list format.
+Return: The number of strongly connected components in the graph.
+Sample Dataset
+6 7
+4 1
+1 2
+2 4
+5 6
+3 2
+5 3
+3 5
+
+Sample Output
+3

@@ -1,0 +1,12 @@
+Problem
+An inversion of an array A[1..n] is a pair of indices (i,j) such that 1 \le i < j \le n and A[i] > A[j].
+The number of inversions shows how far the array is from being sorted: if it is already sorted then there are no
+inversions, whereas if it is sorted in reverse order then the number of inversions is maximal.
+Given: A positive integer n \le 10^5 and an array A[1..n] of integers from -10^5 to 10^5.
+Return: The number of inversions in A.
+Sample Dataset
+5
+-6 1 15 8 10
+
+Sample Output
+2
