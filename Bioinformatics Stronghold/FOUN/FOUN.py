@@ -34,4 +34,4 @@ output log10 probability of each factor with zero recessive allele
 '''
 for i in range(1, g+1):
     final_dist_vec = (np.dot(matrix_power(transition_matrix, i), k_matrix.T))
-    print ' '.join(str(x) for x in np.log10(final_dist_vec[0, -len(k_vec):]))
+    print ' '.join(str(x) for x in np.log10(final_dist_vec[0, :len(k_vec)]))
