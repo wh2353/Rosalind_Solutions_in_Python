@@ -6,7 +6,7 @@ protein_mass_table = dict((x.split()[0], int(eval(x.split()[1]))) for x in prote
 '''
 Get the unique mass values
 for two AAs with the same weight, Rosalind actually consider them as the same solution
-That is wroooooong
+That is so wroooooong
 '''
 list_of_AA_mass = set(protein_mass_table.values())
 
