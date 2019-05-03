@@ -1,4 +1,5 @@
 '''
+Burrows Wheeler Transformation
 standard algorithm:
 build a suffix matrix first,
 sort each permutation
@@ -11,5 +12,5 @@ def burrows_wheeler_transform(seq):
 
 if __name__ == "__main__":
     
-    seq = open("/Users/WENRUI/Downloads/rosalind_ba9i.txt","r").read().rstrip()
+    seq = open("rosalind_ba9i.txt","r").read().rstrip()
     print burrows_wheeler_transform(seq)
