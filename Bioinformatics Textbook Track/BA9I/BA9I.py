@@ -1,4 +1,5 @@
 '''
+Burrows Wheeler Transformation
 standard algorithm:
 build a suffix matrix first,
 sort each permutation
