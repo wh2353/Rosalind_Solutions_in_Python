@@ -12,9 +12,9 @@ only tells the total number of walks of length 4 rather than paths of length 4, 
 difficult to subtract the number of walks with repetitive edges from the total number
 
 Alternatively, we can first calculate the the number of length 2 walks from i to j,
-and the total number of length 2 walks has to equal to number of length 2 paths if i is NOT
+and the total number of length 2 walks has to be equal to number of length 2 paths if i is NOT
 equal to j. If there are more than 1 DISTINCT length 2 paths between i and j, then there must
-have a square. If none of the distinct is and js have more than 1 distinct length 4 paths/walks,
+have a square. If none of the distinct is and js have more than 1 distinct length 2 paths/walks,
 there is no squares exist in the graph
 
 '''
